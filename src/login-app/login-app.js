@@ -31,13 +31,13 @@ class LoginApp extends PolymerElement {
         }
         paper-button[can]{
           color: var(--paper-white-100);
-          background-color: var(--paper-deep-purple-300);
+          background-color: var(--google-blue-100);
         }
         paper-input{
           width: 380px;
         }
         paper-button[raised]{
-          background-color: var(--paper-blue-600);
+          background-color: var(--google-blue-100);
           text-align: center;
 
         }
@@ -153,7 +153,7 @@ class LoginApp extends PolymerElement {
 
   }
 
-  addUser(e) {
+  addUser() {
     if(this.$.email.validate()==false){
       this.$.email.label="Coloca un Mail Valido";
     }else{
@@ -165,7 +165,7 @@ class LoginApp extends PolymerElement {
     }else{
       this.$.pass.label="Password";
     }
-    e.localTarget
+    
   }
 
 
