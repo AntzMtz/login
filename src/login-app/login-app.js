@@ -147,13 +147,14 @@ class LoginApp extends PolymerElement {
           <paper-button can id="cance">Cancelar</paper-button>
 
         </div>
+        
       </form>
       </paper-card>
     `;
 
   }
 
-  addUser() {
+  addUser(e) {
     if(this.$.email.validate()==false){
       this.$.email.label="Coloca un Mail Valido";
     }else{
@@ -165,7 +166,7 @@ class LoginApp extends PolymerElement {
     }else{
       this.$.pass.label="Password";
     }
-    
+    console.log(e.target.id);
   }
 
 
@@ -185,13 +186,13 @@ class LoginApp extends PolymerElement {
 
         //console.log(this.$.codi);
         this.$.cance.addEventListener("click",(e)=>
-          this.presiona() + this.addUser() +
+          this.presiona() + this.addUser(e) +
           console.log(e.target.id)
         )
         //this.$.codi.addEventListener("namechanged",()=> this.addUser())
         this.$.codi.addEventListener("namechanged",(e)=>{
           console.log(e.target.id) +
-          this.addUser()
+          this.addUser(e)
         })
 
       }
