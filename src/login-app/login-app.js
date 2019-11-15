@@ -8,7 +8,7 @@ import '@polymer/iron-icons/iron-icons.js';
 
 import '@polymer/iron-form/iron-form.js';
 import './name-app.js';
-
+import './invisi.html';
 
 
 /**
@@ -16,8 +16,8 @@ import './name-app.js';
  * @polymer
  */
 class LoginApp extends PolymerElement {
-  static get template() {
-    return html`
+    static get template() {
+      return html`
       <style>
         :host {
           display: block;
@@ -129,7 +129,7 @@ class LoginApp extends PolymerElement {
 
           </div>
 
-          <paper-input class="custom" type="email" id="email" always-float-label label="Email" required auto-validate>
+          <paper-input class="custom" value="{{email}}" type="email" id="email" always-float-label label="Email" required auto-validate>
 
             <iron-icon icon="mail" slot="prefix"></iron-icon>
 
@@ -145,12 +145,13 @@ class LoginApp extends PolymerElement {
         <div class="card-acctions" id="but">
           <paper-button raised id="env" on-click="addUser">Enviar</paper-button>
           <paper-button can id="cance">Cancelar</paper-button>
+          
 
         </div>
         
       </form>
       </paper-card>
-    `;
+    `;  
 
   }
 
@@ -173,6 +174,11 @@ class LoginApp extends PolymerElement {
   presiona(){
     this.name1="Antonio";
   }
+  _emailChanged(a,b){
+    console.log(a);
+    console.log(b);
+    
+  }
 
   ready(){
         super.ready();
@@ -186,23 +192,34 @@ class LoginApp extends PolymerElement {
 
         //console.log(this.$.codi);
         this.$.cance.addEventListener("click",(e)=>
-          this.presiona() + this.addUser(e) +
-          console.log(e.target.id)
+          this.presiona() + this.addUser(e) 
+          + this.hide()
+          // + console.log(e.target.id)
         )
         //this.$.codi.addEventListener("namechanged",()=> this.addUser())
         this.$.codi.addEventListener("namechanged",(e)=>{
-          console.log(e.target.id) +
+          //console.log(e.target.id) +
           this.addUser(e)
         })
 
       }
+      
 
+      
+      viewCan(){
+        this.$.cance.hidden="yes"
+        //this.style.display="none"
+      }
 
       static get properties() {
           return {
             name1: {
               type: String,
               value: 'Antz'
+            },
+            email: {
+              type:String,
+              observer:"_emailChanged"
             }
           };
         }
