@@ -8,7 +8,8 @@ import '@polymer/iron-icons/iron-icons.js';
 
 import '@polymer/iron-form/iron-form.js';
 import './name-app.js';
-import './invisi.html';
+//import './invisi.html';
+import { PaperButtonBehavior } from '@polymer/paper-behaviors/paper-button-behavior';
 
 
 /**
@@ -40,6 +41,10 @@ class LoginApp extends PolymerElement {
           background-color: var(--google-blue-100);
           text-align: center;
 
+        }
+        formbuttom-app{
+          color: var(--paper-white-100);
+          background-color: var(--google-blue-100);
         }
         form{
           text-align: left;
@@ -113,7 +118,7 @@ class LoginApp extends PolymerElement {
     }
 
       </style>
-
+      <content></content>
       <paper-card   elevation="5" animated-shadow="false">
       <div class="card-header">
         <iron-icon class = "big" src ="src/imagen/whatsapp.png"></iron-icon>
@@ -138,14 +143,15 @@ class LoginApp extends PolymerElement {
           <paper-input  class="custom" id="pass" always-float-label label="Contraseña" type="Password" required auto-validate>
             <iron-icon icon="icons:lock" slot="prefix"></iron-icon>
           </paper-input>
-
+        
 
 
         </div>
         <div class="card-acctions" id="but">
-          <paper-button raised id="env" on-click="addUser">Enviar</paper-button>
-          <paper-button can id="cance">Cancelar</paper-button>
-          
+          <!--paper-button raised id="env" on-click="addUser">Enviar</paper-button-->
+          <paper-button raised id="env" >Enviar</paper-button>
+          <!--paper-button can id="cance">Cancelar</paper-button-->
+          <formbuttom-app can id="cance">hola</formbuttom-app>  
 
         </div>
         
@@ -182,9 +188,7 @@ class LoginApp extends PolymerElement {
 
   ready(){
         super.ready();
-        //this.$.codi.addEventListener("namechanged",()=>this.presiona() + this.addUser())
         setTimeout(()=>{
-          //console.log("Console");
           this.name="Antonio"
 
 
@@ -192,14 +196,15 @@ class LoginApp extends PolymerElement {
 
         //console.log(this.$.codi);
         this.$.cance.addEventListener("click",(e)=>
-          this.presiona() + this.addUser(e) 
-          + this.hide()
-          // + console.log(e.target.id)
+          this.presiona() + this.addUser(e) + this.viewCan()
         )
-        //this.$.codi.addEventListener("namechanged",()=> this.addUser())
         this.$.codi.addEventListener("namechanged",(e)=>{
-          //console.log(e.target.id) +
           this.addUser(e)
+        })
+        this.$.env.addEventListener("click",(e)=>{
+          this.viewCanNo()
+          console.log(e.target.id);
+          
         })
 
       }
@@ -207,8 +212,12 @@ class LoginApp extends PolymerElement {
 
       
       viewCan(){
-        this.$.cance.hidden="yes"
-        //this.style.display="none"
+        this.$.cance.hidden="false"
+      }
+      viewCanNo(){
+        //this.$.cance.hidden="true"
+        //this.$.env.hidden="false"
+        this.$.cance.hidden=""
       }
 
       static get properties() {

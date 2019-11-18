@@ -1,6 +1,6 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@polymer/paper-button/paper-button.js';
-import './invisi.html';
+import './form-buttom.js';
 
 class FormButton extends PolymerElement {
 
@@ -9,10 +9,21 @@ class FormButton extends PolymerElement {
             <style>
             
             </style>
+            <formbuttom-app id="cance">cancel</formbuttom-app>
             
-            <paper-button id="cance">quien</paper-button>
+            
         `;
     }    
 
+    viewCan(){
+        this.$.cance.hidden="none";
+      }
+
+      ready(){
+          super.ready();
+          this.$.cance.addEventListener("click",()=>{
+              this.viewCan();
+          })
+      }
 }
 window.customElements.define('formbutton-app', FormButton);
