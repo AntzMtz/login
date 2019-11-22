@@ -8,8 +8,6 @@ import '@polymer/iron-icons/iron-icons.js';
 
 import '@polymer/iron-form/iron-form.js';
 import './name-app.js';
-//import './invisi.html';
-import { PaperButtonBehavior } from '@polymer/paper-behaviors/paper-button-behavior';
 
 
 /**
@@ -23,6 +21,15 @@ class LoginApp extends PolymerElement {
         :host {
           display: block;
           text-align:left;
+          --fotm-butom:var(--paper-blue-200);
+          --form-buttom-the:{
+            background-color: var(--paper-deep-purple-a100);
+            color:white;
+            border:none;
+            border-radius:5px;  
+          }
+
+
         }
         paper-card{
           text-align: center;
@@ -42,10 +49,7 @@ class LoginApp extends PolymerElement {
           text-align: center;
 
         }
-        formbuttom-app{
-          color: var(--paper-white-100);
-          background-color: var(--google-blue-100);
-        }
+        
         form{
           text-align: left;
         }
@@ -114,7 +118,7 @@ class LoginApp extends PolymerElement {
       --paper-input-container-label-floating: {
         width: auto;
         color: blue;
-      };
+      };      
     }
 
       </style>
@@ -148,11 +152,12 @@ class LoginApp extends PolymerElement {
 
         </div>
         <div class="card-acctions" id="but">
-          <!--paper-button raised id="env" on-click="addUser">Enviar</paper-button-->
+          <!--paper-button raised id="env" on-click="addUser">Enviar</paper-button>
           <paper-button raised id="env" >Enviar</paper-button>
-          <!--paper-button can id="cance">Cancelar</paper-button-->
-          <formbuttom-app can id="cance">hola</formbuttom-app>  
-
+          <paper-button can id="cance">Cancelar</paper-button-->
+          <formbuttom-app raised id="env" but="Enviar" ></formbuttom-app> 
+          <formbuttom-app can id="cance" but="Cancelar"></formbuttom-app>  
+          
         </div>
         
       </form>
@@ -176,7 +181,7 @@ class LoginApp extends PolymerElement {
     console.log(e.target.id);
   }
 
-
+  
   presiona(){
     this.name1="Antonio";
   }
@@ -185,15 +190,25 @@ class LoginApp extends PolymerElement {
     console.log(b);
     
   }
+  
+  mine(){
+    if(this.up){
+      this.style.boxShadow="none"
+      this.up=false
+    }else{
+      this.style.boxShadow="10px 10px 20px black"
+      this.up=true
+    }
+  }
+
 
   ready(){
         super.ready();
         setTimeout(()=>{
           this.name="Antonio"
-
-
         },3000)
-
+                 
+          //this.addEventListener("click",this.noVisible)
         //console.log(this.$.codi);
         this.$.cance.addEventListener("click",(e)=>
           this.presiona() + this.addUser(e) + this.viewCan()
@@ -206,9 +221,15 @@ class LoginApp extends PolymerElement {
           console.log(e.target.id);
           
         })
+        this.addEventListener("click",()=>{
+          this.mine()
+          
+        }
+        )
 
       }
       
+
 
       
       viewCan(){
@@ -229,10 +250,14 @@ class LoginApp extends PolymerElement {
             email: {
               type:String,
               observer:"_emailChanged"
+            },
+            up:{
+              type:Boolean
             }
+
           };
         }
 
 
 }
-window.customElements.define('login-app', LoginApp);
+customElements.define('login-app', LoginApp);

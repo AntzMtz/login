@@ -1,26 +1,32 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@polymer/paper-button/paper-button.js';
 import './form-buttom.js';
-
+import './MisEstilos-app.js';
 class FormButton extends PolymerElement {
 
     static get template() {
         return html`
-            <style>
-            
+            <style include="MisEstilos">
+                
             </style>
-            <formbuttom-app id="cance">cancel</formbuttom-app>
+            <formbuttom-app id="cance" but="Salida"></formbuttom-app>
             
             
         `;
     }    
 
     viewCan(){
-        this.$.cance.hidden="none";
+        //this.$.cance.hidden="none";
+        //this.style.display="none";
+        this.style.visibility="hidden";
       }
-
-      ready(){
+    
+      
+      
+    ready(){
           super.ready();
+          this.addEventListener('click', this.viewCan);
+
           this.$.cance.addEventListener("click",()=>{
               this.viewCan();
           })
