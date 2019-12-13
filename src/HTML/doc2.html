@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="iso-8559-1" />
+    <meta name="Description" content="Pagina de enseñanza HTML5" />
+    <meta name="Keywords" content="html5, css3, Javascripy, diseño web" />
+    <title>
+        Pagina en HTML5 con nuevas reglas
+    </title>
+    <style>
+        #titulo{
+            font: bold 36px Verdana, Geneva, sans-serif;
+            text-shadow: chartreuse 5px 5px 5px;
+        }
+        #cuerpo{
+            
+            background-color: white;            
+        }
+        #Principal{
+            width: 500px;
+            background-color: blue;
+            text-align: center;
+            margin: 15px auto;
+            padding: 15px;
+            border: 3px solid springgreen;
+            border-radius: 15px;
+            box-shadow: #999 5px 5px 10px;
+        }
+        /* Inicia con mis */
+        
+        p[name^="mis"] {
+            color: red;
+        }
+        /* termina con mis */
+        p[name$="mis"] {
+            color: blueviolet;
+        }
+        /* contiene erro en donde sea  */
+        p[name*="erro"] {
+            color: aqua;
+        }
+        /* Pone el color a todos los P en la psocsicion 4 */
+        p:nth-child(4){
+            color: green;
+        }
+        /* pone el color a todos los impares even es para los pares */
+        p:nth-child(odd){
+            color: indigo;
+        }
+
+    </style>
+</head>
+
+<body id="cuerpo">
+    <header id="Principal">
+        <span id="titulo">
+            estilos CSS3
+
+        </span>
+
+    </header>
+
+
+
+
+
+
+    <p name="miselementos">Hola</p name="mis elementos">
+    <p name="elementos mis">Adios</p>
+    <p name="mi perros es">Enero</p>
+    <p  >Febrero</p>
+
+    <ol>
+        <p>Manzana</p>
+        <p>Melon</p>
+        <p>Fresa</p>
+        <p>Uva</p>
+    </ol>
+</body>
+
+
+</html>
