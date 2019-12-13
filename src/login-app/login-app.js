@@ -1,4 +1,4 @@
-import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import { html, PolymerElement } from '@polymer/polymer/polymer-element.js';
 
 import '@polymer/paper-button/paper-button.js';
 import '@polymer/paper-card/paper-card.js';
@@ -16,8 +16,8 @@ import './name-app.js';
  */
 class LoginApp extends PolymerElement {
     static get template() {
-      return html`
-      <style>
+        return html `
+        <style>
         :host {
           display: block;
           text-align:left;
@@ -162,101 +162,105 @@ class LoginApp extends PolymerElement {
         
       </form>
       </paper-card>
-    `;  
+    `;
 
-  }
-
-  addUser(e) {
-    if(this.$.email.validate()==false){
-      this.$.email.label="Coloca un Mail Valido";
-    }else{
-      this.$.email.label="Email";
     }
 
-    if(this.$.pass.validate()==false){
-      this.$.pass.label="Introduce tu Password";
-    }else{
-      this.$.pass.label="Password";
-    }
-    console.log(e.target.id);
-  }
-
-  
-  presiona(){
-    this.name1="Antonio";
-  }
-  _emailChanged(a,b){
-    console.log(a);
-    console.log(b);
-    
-  }
-  
-  mine(){
-    if(this.up){
-      this.style.boxShadow="none"
-      this.up=false
-    }else{
-      this.style.boxShadow="10px 10px 20px black"
-      this.up=true
-    }
-  }
-
-
-  ready(){
-        super.ready();
-        setTimeout(()=>{
-          this.name="Antonio"
-        },3000)
-                 
-          //this.addEventListener("click",this.noVisible)
-        //console.log(this.$.codi);
-        this.$.cance.addEventListener("click",(e)=>
-          this.presiona() + this.addUser(e) + this.viewCan()
-        )
-        this.$.codi.addEventListener("namechanged",(e)=>{
-          this.addUser(e)
-        })
-        this.$.env.addEventListener("click",(e)=>{
-          this.viewCanNo()
-          console.log(e.target.id);
-          
-        })
-        this.addEventListener("click",()=>{
-          this.mine()
-          
+    addUser(e) {
+        if (this.$.email.validate() == false) {
+            this.$.email.label = "Coloca un Mail Valido";
+        } else {
+            this.$.email.label = "Email";
         }
+
+        if (this.$.pass.validate() == false) {
+            this.$.pass.label = "Introduce tu Password";
+        } else {
+            this.$.pass.label = "Password";
+        }
+        console.log(e.target.id);
+    }
+
+
+    presiona() {
+        this.name1 = "Antonio";
+    }
+    _emailChanged(a, b) {
+        console.log(a);
+        console.log(b);
+
+    }
+
+    mine() {
+        if (this.up) {
+            this.style.boxShadow = "none"
+            this.up = false
+        } else {
+            this.style.boxShadow = "10px 10px 20px black"
+            this.up = true
+        }
+    }
+
+
+    ready() {
+        super.ready();
+        setTimeout(() => {
+            this.name = "Antonio"
+        }, 3000)
+
+        //this.addEventListener("click",this.noVisible)
+        //console.log(this.$.codi);
+        this.$.cance.addEventListener("click", (e) =>
+            this.presiona() + this.addUser(e) + this.viewCan()
         )
-
-      }
-      
-
-
-      
-      viewCan(){
-        this.$.cance.hidden="false"
-      }
-      viewCanNo(){
-        //this.$.cance.hidden="true"
-        //this.$.env.hidden="false"
-        this.$.cance.hidden=""
-      }
-
-      static get properties() {
-          return {
-            name1: {
-              type: String,
-              value: 'Antz'
-            },
-            email: {
-              type:String,
-              observer:"_emailChanged"
-            },
-            up:{
-              type:Boolean
+        this.$.codi.addEventListener("namechanged", (e) => {
+            this.addUser(e)
+        })
+        this.$.env.addEventListener("click", (e) => {
+            this.viewCanNo()
+            console.log(this.$.email.value);
+            if (this.$.email.value == "erly") {
+                location.href = './src/html5/HolaMundo.html'
             }
 
-          };
-        }
+
+
+        })
+        this.addEventListener("click", () => {
+            this.mine()
+
+        })
+
+    }
+
+
+
+
+    viewCan() {
+        this.$.cance.hidden = "false"
+    }
+    viewCanNo() {
+        //this.$.cance.hidden="true"
+        //this.$.env.hidden="false"
+        this.$.cance.hidden = ""
+    }
+
+    static get properties() {
+        return {
+            name1: {
+                type: String,
+                value: 'Antz'
+            },
+            email: {
+                type: String,
+                observer: "_emailChanged"
+            },
+            up: {
+                type: Boolean
+            }
+
+        };
+    }
 
 
 }
