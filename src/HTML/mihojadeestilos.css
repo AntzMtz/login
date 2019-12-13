@@ -1,0 +1,39 @@
+@charset "utf-8";
+body {
+    /* background-color: rgb(59, 63, 83); */
+    background-color: white;
+}
+
+#Hpr{
+    background-color: rgb(59, 63, 83);
+}
+header{
+    background-color: rgb(59, 63, 83);
+}
+nav{
+    background-color: rgb(59, 63, 83);
+    color: wheat;
+}
+#BRL{
+    background-color: rgb(59, 63, 83);
+    float: left; 
+    
+    height: 1400px;
+}
+#CONP{
+    background-color: rgb(59, 63, 83);
+    margin-left: 240px;
+    padding-left: 15px;
+    padding-top: 10px;
+    
+}
+#PIEP{
+    background-color: rgb(59, 63, 83);
+    clear: both;
+    
+    margin-bottom: auto;
+}
+li{
+    background-color: rgb(59, 63, 83);
+    display: inline;
+}
