@@ -1,0 +1,41 @@
+@charset "utf-8";
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote, figure
+figure, img {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    font-weight: normal;
+   }
+   table { border-collapse: collapse; border-spacing: 0; }
+   td, th, caption { font-weight: normal; text-align: left; }
+   img, fieldset { border: 0; }
+   ol { padding-left: 1.4em; list-style: decimal; }
+   ul { padding-left: 1.4em; list-style:square; }
+   q:before, q:after { content:''; }
+
+   /* fin del reset css */
+body{
+    font-size: 62.5%;
+}
+h1{
+    font: normal 1.5em 'ALEG';
+    background: -webkit-linear-gradient(top, #00F, #0CF);
+    width: 35%;
+    border-radius: 10px;
+    margin: 15px auto;
+    text-align: center;
+    padding: 15px;
+    color: white;
+    box-shadow: #00F 10px 10px 10px;
+    -webkit-transition-property: text-shadow;
+    -webkit-transition-duration: 1s;
+    
+    /* font: 16px solid 'ALEG'; */
+}
+h1:hover{
+    text-shadow: white 5px 5px 3px;
+}
+@font-face {
+    font-family: 'ALEG';
+    src: url('../HTML/Fuentes/Algerian.ttf');
+}
