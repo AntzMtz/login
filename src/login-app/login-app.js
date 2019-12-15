@@ -220,7 +220,7 @@ class LoginApp extends PolymerElement {
             this.viewCanNo()
             console.log(this.$.email.value);
             if (this.$.email.value == "erly") {
-                location.href = './src/HTML/HolaMundo.html'
+                location.href = './src/Ejercicio/Ejercicio1.html'
             }
 
 
