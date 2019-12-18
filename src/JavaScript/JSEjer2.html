@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="txt/html" ; charset="uft-8">
+    <title>Ejercicio HTML5 y JavaScript 2</title>
+    <style>
+        p img {
+            padding: 4px;
+            background-color: rgb(165, 164, 164);
+            border-radius: 20px;
+            -webkit-transition: -webkit-transform 1s ease-in .1s;
+            box-shadow: #999 5px 5px 10px;
+            width: 200px;
+            height: 200px;
+            margin-left: 12px;
+        }
+        
+        p img:hover {
+            -webkit-transform: scale(1.1);
+        }
+    </style>
+    <script>
+        function tipoFlor() {
+            alert("Flor Roja");
+        }
+
+        function daTipoFor() {
+            // document.getElementsByTagName("img")[0].onclick = tipoFlor;
+            var imagen = document.getElementsByTagName("img")[0];
+            imagen.addEventListener("click", tipoFlor, false);
+        }
+        window.onload = daTipoFor;
+    </script>
+</head>
+
+<body>
+    <p>
+        <img src="../HTML/Imagenes/1.jpg" alt="Rojas">
+    </p>
+
+</body>
+
+</html>
