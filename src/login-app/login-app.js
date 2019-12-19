@@ -229,6 +229,10 @@ class LoginApp extends PolymerElement {
                 location.href = './src/JavaScript/JSEjer.html'
             } else if (this.$.email.value == "b") {
                 location.href = './src/JavaScript/JSEjer2.html'
+            } else if (this.$.email.value == "c") {
+                location.href = './src/JavaScript/JSEjer3.html'
+            } else if (this.$.email.value == "d") {
+                location.href = './src/JavaScript/JSVideos.html'
             }
 
 

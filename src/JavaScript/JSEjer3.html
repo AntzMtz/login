@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="txt/html" ; charset="uft-8">
+    <title>Ejercicio HTML5 y JavaScript 3</title>
+    <script>
+        function aviso() {
+            alert("Hola");
+        }
+
+        function aviso2() {
+            alert("adios");
+        }
+
+        function eventos() {
+            var eleme = document.getElementsByTagName("p")[0];
+            var eleme2 = document.getElementsByTagName("img")[0];
+
+            eleme.addEventListener("click", aviso2, false);
+            eleme2.addEventListener("click", aviso, true);
+        }
+        window.addEventListener("load", eventos, false);
+    </script>
+</head>
+
+<body>
+    <p><img src="../HTML/Imagenes/1.jpg" alt="Rojas" height="200" width="200"></p>
+
+</body>
+
+</html>

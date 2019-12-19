@@ -4,6 +4,113 @@
 <head>
     <meta http-equiv="Content-Type" content="txt/html" ; charset="uft-8">
     <title>Ejercicio HTML5 y JavaScript 2</title>
+
+    <script>
+        var imagen = new Array(5);
+        var tama;
+
+        function tipoFlor(a) {
+            alert("Flor Roja");
+        }
+
+        function daTipoFor() {
+
+            // document.getElementsByTagName("img")[0].onclick = tipoFlor;
+            tama = document.getElementsByTagName("img").length;
+            var alto = 200;
+            var ancho = 200;
+            var creal = 225;
+            var crean = 225;
+            console.log(tama);
+
+            for (var x = 0; x < tama; x++) {
+                imagen[x] = document.getElementsByTagName("img")[x];
+                imagen[x].width = alto;
+                imagen[x].height = ancho;
+            }
+
+
+
+
+            // imagen = document.getElementsByTagName("img")[0];
+            // imagen.addEventListener("click", tipoFlor, false);
+            // imagen.addEventListener("mouseover", crecer, false);
+            // imagen.addEventListener("mouseout", regresar, false);
+
+
+            imagen[0].addEventListener("mouseover", function() {
+                imagen[0].width = creal;
+                imagen[0].height = crean;
+            }, false);
+            imagen[0].addEventListener("mouseout", function() {
+                imagen[0].width = alto;
+                imagen[0].height = ancho;
+            }, false);
+            imagen[0].addEventListener("click", tipoFlor, false);
+
+            imagen[1].addEventListener("mouseover", function() {
+                imagen[1].width = creal;
+                imagen[1].height = crean;
+            }, false);
+
+            imagen[1].addEventListener("mouseout", function() {
+                imagen[1].width = alto;
+                imagen[1].height = ancho;
+            }, false);
+            imagen[1].addEventListener("click", tipoFlor, false);
+
+            imagen[2].addEventListener("mouseover", function() {
+                imagen[2].width = creal;
+                imagen[2].height = crean;
+            }, false);
+            imagen[2].addEventListener("mouseout", function() {
+                imagen[2].width = alto;
+                imagen[2].height = ancho;
+            }, false);
+            imagen[2].addEventListener("click", tipoFlor, false);
+
+            imagen[3].addEventListener("mouseover", function() {
+                imagen[3].width = creal;
+                imagen[3].height = crean;
+            }, false);
+            imagen[3].addEventListener("mouseout", function() {
+                imagen[3].width = alto;
+                imagen[3].height = ancho;
+            }, false);
+            imagen[3].addEventListener("click", tipoFlor, false);
+
+            imagen[4].addEventListener("mouseover", function() {
+                imagen[4].width = creal;
+                imagen[4].height = crean;
+            }, false);
+            imagen[4].addEventListener("mouseout", function() {
+                imagen[4].width = alto;
+                imagen[4].height = ancho;
+            }, false);
+            imagen[4].addEventListener("click", tipoFlor, false);
+
+
+        }
+
+
+        function crecer() {
+            imagen.height = 350;
+            imagen.width = 350;
+
+
+        }
+
+        function regresar() {
+            imagen.height = 200;
+            imagen.width = 200;
+
+
+        }
+
+        window.onload = daTipoFor;
+        // Window.addEventListener("load", daTipoFor, false);
+    </script>
+
     <style>
         p img {
             padding: 4px;
@@ -11,32 +118,23 @@
             border-radius: 20px;
             -webkit-transition: -webkit-transform 1s ease-in .1s;
             box-shadow: #999 5px 5px 10px;
-            width: 200px;
-            height: 200px;
+            /* width: 200px;
+            height: 200px; */
             margin-left: 12px;
         }
-        
-        p img:hover {
+        /* p img:hover {
             -webkit-transform: scale(1.1);
-        }
+        } */
     </style>
-    <script>
-        function tipoFlor() {
-            alert("Flor Roja");
-        }
-
-        function daTipoFor() {
-            // document.getElementsByTagName("img")[0].onclick = tipoFlor;
-            var imagen = document.getElementsByTagName("img")[0];
-            imagen.addEventListener("click", tipoFlor, false);
-        }
-        window.onload = daTipoFor;
-    </script>
 </head>
 
 <body>
     <p>
         <img src="../HTML/Imagenes/1.jpg" alt="Rojas">
+        <img src="../HTML/Imagenes/2.jpg" alt="Rojas">
+        <img src="../HTML/Imagenes/3.jpg" alt="Rojas">
+        <img src="../HTML/Imagenes/4.jpg" alt="Rojas">
+        <img src="../HTML/Imagenes/5.jpg" alt="Rojas">
     </p>
 
 </body>
