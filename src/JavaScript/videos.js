@@ -57,5 +57,5 @@ function moverV(posicion) {
 
 }
 
-
+// window.onreadystatechange
 window.addEventListener("load", comenzar, false);
