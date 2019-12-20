@@ -4,14 +4,28 @@
 <head>
     <meta http-equiv="Content-Type" content="txt/html" ; charset="uft-8">
     <title>Ejercicio HTML5 y JavaScript</title>
+    <link rel="stylesheet" href="./videos.css">
+    <script src="./videos.js"></script>
 </head>
 
 <body>
     <section id="video">
-        <video id="Mi video" controls autoplay width="400"> 
-        <source src="../JavaScript/Videos/Video1.mp4">
-        <!-- <source src="../JavaScript/Videos/Video1.ogg"> -->
+        <!-- <video id="Mi video" controls autoplay loop width="400" poster="../imagen/whatsapp.png">  -->
+        <video id="Mi video" autoplay loop width="400" poster="../imagen/whatsapp.png"> 
+            <source src="../JavaScript/Videos/Video1.mp4">
+            <source src="../JavaScript/Videos/Video1.ogg">
         </video>
+        <nav>
+            <div id="botones">
+                <button type="button" id="reproducir">Pause</button>
+
+            </div>
+            <div id="barra">
+                <div id="progreso">
+
+                </div>
+            </div>
+        </nav>
     </section>
 
 
