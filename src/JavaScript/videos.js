@@ -1,16 +1,23 @@
-var mivideo, reproducir, barra, progreso, timeV, maximo;
+var mivideo, reproducir, barra, progreso, timeV, maximo, name1;
 
 maximo = 300;
 
 function comenzar() {
-    mivideo = document.getElementById("Mi video");
+
+    mivideo = document.getElementsByClassName("multi")[0];
+    name1 = document.getElementsByClassName("multi")[0].id;
+    // if (name1 == "Mi video") {
     reproducir = document.getElementById("reproducir");
     barra = document.getElementById("barra");
     progreso = document.getElementById("progreso");
-
     reproducir.addEventListener("click", playV, false);
     barra.addEventListener("click", moverV, false);
     bucle = setInterval(estado, 100);
+    // } else {
+    //     console.log(name1);
+
+    // }
+
 }
 
 function playV() {
