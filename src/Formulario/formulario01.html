@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="iso-8559-1" />
+        <meta name="Description" content="Pagina de enseñanza HTML5" />
+        <meta name="Keywords" content="html5, css3, Javascripy, diseño web" />
+        <title>
+            Pagina en HTML5 formulario
+        </title>
+        <style>
+            table{
+                text-align: center;
+                background-color: #F96;
+                
+                width: 25%;
+                margin: auto;
+                border: 2px #F30 dashed;
+            }
+            td{
+                padding: 15px;
+            }
+        </style>
+        <script>
+            function comezar(){
+                var nombre2 = document.getElementById("nombre1");
+                var Apellido = document.getElementById("Apellido");
+                var edad = document.getElementById("edad");
+                nombre1.addEventListener("input",validar,false);
+                Apellido.addEventListener("input",validar,false);
+                validar();
+            }
+            function validar(){
+                if(nombre1.value == "" && Apellido.value ==""){
+                    nombre1.setCustomValidity("Introduce Nombre y Apellido");
+                    Apellido.setCustomValidity("");
+                    nombre1.style.background="#FFDDDD"
+                    Apellido.style.background="#FFDDDD"
+                }else if(!nombre1.value == "" && Apellido.value ==""){
+                    nombre1.setCustomValidity("");
+                    Apellido.setCustomValidity("Introduce Apellido");
+                    nombre1.style.background="#FFFFFF"
+                    Apellido.style.background="#FFDDDD"
+                }else if(nombre1.value == "" && !Apellido.value ==""){
+                    nombre1.setCustomValidity("Introduce Nombre");
+                    Apellido.setCustomValidity("");
+                    Apellido.style.background="#FFFFFF"
+                    nombre1.style.background="#FFDDDD"
+                }else{
+                    nombre1.setCustomValidity("");
+                    Apellido.setCustomValidity("");
+                    Apellido.style.background="#FFFFFF"
+                    nombre1.style.background="#FFFFFF"
+                }
+            }
+
+
+
+            window.addEventListener("load",comezar,false)
+        </script>
+        
+    </head>
+    <body>
+        <section>
+            <!-- <form name="miFormulario" id="miFormu" method="GET"  autocomplete="on">
+                Email : &nbsp;<input type="email" required multiple name="texto" id="texto"><br>
+                Search: &nbsp;<input type="search" name="search" id="search"><br>
+                URL: &nbsp;<input type="url" name="url" autofocus id="url"><br>
+                Number: &nbsp;<input type="number" name="number" id="number" placeholder="Multiplos de 5" min="0" max="100" step="5"><br>
+                Range: &nbsp;<input type="range" name="range" id="Range" min="0" max="100" step="2"><br>
+                Fecha: &nbsp;<input type="datetime-local" name="fecha" id="Fecha"><br>
+                CP: &nbsp;<input pattern="[0-9]{5}" name="CP" id="CP" placeholder="Solo 5 digitos"><br>
+                
+                <datalist id="información" >
+                    <option value="5559080123" id="value1"  label="  Telefono 1"></option>
+                    <option value="5559080124" label=" Telefono 2"></option>
+                    <option value="5559080125" label=" Telefono 3"></option>
+                </datalist> 
+
+                Telefono: &nbsp;<input type="tel"   name="telefono" id="telefono" list="información"><br>
+                
+                <input type="submit" value="Se envia">
+    
+            </form>
+            <img src="../imagen/whatsapp.png" width="200" height="200" name="imagen" id="imagen"> <br>
+            nombre: &nbsp; <input type="text" name="nombre" id="nombre" form="miFormu"> -->
+            <form name="registro_usuarios" id="registro" method="GET">
+                <table>
+                    <tr>
+                        <td> Nombre:</td>
+                        <td> <input type="text" name="nombre" id="nombre1"> </td>
+                    </tr>
+                    <tr>
+                        <td>Apellido:</td>
+                        <td><input type="text" name="Apellido" id="Apellido"></td>
+                    </tr>
+                    <tr>
+                        <td>Edad:</td>
+                        <td><input type="number" name="edad" id="edad" min="1" max="100"></td>
+                    </tr>
+                    <tr>
+                        <td> 
+                            <input type="submit" id="Enviar" value="Registrar">
+                        </td>
+                    </tr>
+
+
+                </table>
+            </form>
+
+        </section>
+        
+        
+    </body>
+</html>
