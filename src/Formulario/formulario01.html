@@ -1,67 +1,139 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="iso-8559-1" />
-        <meta name="Description" content="Pagina de enseñanza HTML5" />
-        <meta name="Keywords" content="html5, css3, Javascripy, diseño web" />
-        <title>
-            Pagina en HTML5 formulario
-        </title>
-        <style>
-            table{
-                text-align: center;
-                background-color: #F96;
-                
-                width: 25%;
-                margin: auto;
-                border: 2px #F30 dashed;
-            }
-            td{
-                padding: 15px;
-            }
-        </style>
-        <script>
-            function comezar(){
-                var nombre2 = document.getElementById("nombre1");
-                var Apellido = document.getElementById("Apellido");
-                var edad = document.getElementById("edad");
-                nombre1.addEventListener("input",validar,false);
-                Apellido.addEventListener("input",validar,false);
-                validar();
-            }
-            function validar(){
-                if(nombre1.value == "" && Apellido.value ==""){
-                    nombre1.setCustomValidity("Introduce Nombre y Apellido");
-                    Apellido.setCustomValidity("");
-                    nombre1.style.background="#FFDDDD"
-                    Apellido.style.background="#FFDDDD"
-                }else if(!nombre1.value == "" && Apellido.value ==""){
-                    nombre1.setCustomValidity("");
-                    Apellido.setCustomValidity("Introduce Apellido");
-                    nombre1.style.background="#FFFFFF"
-                    Apellido.style.background="#FFDDDD"
-                }else if(nombre1.value == "" && !Apellido.value ==""){
-                    nombre1.setCustomValidity("Introduce Nombre");
-                    Apellido.setCustomValidity("");
-                    Apellido.style.background="#FFFFFF"
-                    nombre1.style.background="#FFDDDD"
-                }else{
-                    nombre1.setCustomValidity("");
-                    Apellido.setCustomValidity("");
-                    Apellido.style.background="#FFFFFF"
-                    nombre1.style.background="#FFFFFF"
-                }
-            }
 
-
-
-            window.addEventListener("load",comezar,false)
-        </script>
+<head>
+    <meta charset="iso-8559-1" />
+    <meta name="Description" content="Pagina de enseñanza HTML5" />
+    <meta name="Keywords" content="html5, css3, Javascripy, diseño web" />
+    <title>
+        Pagina en HTML5 formulario
+    </title>
+    <style>
+        table {
+            text-align: center;
+            background-color: #F96;
+            width: 25%;
+            margin: auto;
+            border: 2px #F30 dashed;
+        }
         
-    </head>
-    <body>
-        <section>
-            <!-- <form name="miFormulario" id="miFormu" method="GET"  autocomplete="on">
+        td {
+            padding: 15px;
+        }
+    </style>
+    <script>
+        // function comezar() {
+        //     var nombre2 = document.getElementById("nombre1");
+        //     var Apellido = document.getElementById("Apellido");
+        //     var edad = document.getElementById("edad");
+        //     nombre1.addEventListener("input", validar, false);
+        //     Apellido.addEventListener("input", validar, false);
+        //     validar();
+        // }
+
+        // function validar() {
+        //     if (nombre1.value == "" && Apellido.value == "") {
+        //         nombre1.setCustomValidity("Introduce Nombre y Apellido");
+        //         Apellido.setCustomValidity("");
+        //         nombre1.style.background = "#FFDDDD"
+        //         Apellido.style.background = "#FFDDDD"
+        //     } else if (!nombre1.value == "" && Apellido.value == "") {
+        //         nombre1.setCustomValidity("");
+        //         Apellido.setCustomValidity("Introduce Apellido");
+        //         nombre1.style.background = "#FFFFFF"
+        //         Apellido.style.background = "#FFDDDD"
+        //     } else if (nombre1.value == "" && !Apellido.value == "") {
+        //         nombre1.setCustomValidity("Introduce Nombre");
+        //         Apellido.setCustomValidity("");
+        //         Apellido.style.background = "#FFFFFF"
+        //         nombre1.style.background = "#FFDDDD"
+        //     } else {
+        //         nombre1.setCustomValidity("");
+        //         Apellido.setCustomValidity("");
+        //         Apellido.style.background = "#FFFFFF"
+        //         nombre1.style.background = "#FFFFFF"
+        //     }
+        // }
+        var edad;
+
+        function comezar() {
+            edad = document.getElementById("edad");
+            edad.addEventListener("change", cambia_rango, false);
+            document.registro_usuarios.addEventListener("invalid", validar, true);
+            document.getElementById("Enviar").addEventListener("click", enviar, false);
+            document.registro_usuarios.addEventListener("input", validar1, false);
+            // validar1();
+        }
+
+        function cambia_rango() {
+            var salida = document.getElementById("rango");
+            // var calculo = edad.value - 30;
+            var calculo = edad.value
+            if (calculo < 0) {
+                calculo = 0
+                    // edad.value = 30;
+            }
+            // salida.innerHTML = calculo + " a " + edad.value
+            salida.innerHTML = calculo
+        }
+
+        function validar(e) {
+            var elemento = e.target;
+            elemento.style.background = "#FFDDDD";
+            // enviar();
+        }
+
+        function enviar() {
+            var correcto = document.registro_usuarios.checkValidity();
+            var cuadro_usuario = document.getElementById("usuario");
+            if (correcto == true) {
+                document.registro_usuarios.submit();
+            } else if (cuadro_usuario.validity.valueMissing == true &&
+                texto.validity.valueMissing == true) {
+                usuario.setCustomValidity("Introduce Usuario y Correo electronico");
+                texto.setCustomValidity("");
+
+            } else if (cuadro_usuario.validity.valueMissing == false && texto.validity.valueMissing == true) {
+                usuario.setCustomValidity("");
+                texto.setCustomValidity("Introduce Correo electronico");
+
+            } else if (cuadro_usuario.validity.valueMissing == true && texto.validity.valueMissing == false) {
+                usuario.setCustomValidity("Introduce Usuario");
+                texto.setCustomValidity("");
+
+            } else {
+                usuario.setCustomValidity("");
+                texto.setCustomValidity("");
+            }
+        }
+
+        function validar1() {
+            usuario.setCustomValidity("");
+            texto.setCustomValidity("");
+            if (usuario.value == "" && texto.value == "") {
+                usuario.style.background = "#FFDDDD"
+                texto.style.background = "#FFDDDD"
+            } else if (!usuario.value == "" && texto.value == "") {
+                usuario.style.background = "#FFFFFF"
+                texto.style.background = "#FFDDDD"
+            } else if (usuario.value == "" && !texto.value == "") {
+                texto.style.background = "#FFFFFF"
+                usuario.style.background = "#FFDDDD"
+            } else {
+
+                texto.style.background = "#FFFFFF"
+                usuario.style.background = "#FFFFFF"
+            }
+        }
+
+        window.addEventListener("load", comezar, false)
+    </script>
+
+</head>
+
+<body>
+    <section>
+        <!-- <form name="miFormulario" id="miFormu" method="GET"  autocomplete="on">
                 Email : &nbsp;<input type="email" required multiple name="texto" id="texto"><br>
                 Search: &nbsp;<input type="search" name="search" id="search"><br>
                 URL: &nbsp;<input type="url" name="url" autofocus id="url"><br>
@@ -83,32 +155,39 @@
             </form>
             <img src="../imagen/whatsapp.png" width="200" height="200" name="imagen" id="imagen"> <br>
             nombre: &nbsp; <input type="text" name="nombre" id="nombre" form="miFormu"> -->
-            <form name="registro_usuarios" id="registro" method="GET">
-                <table>
-                    <tr>
-                        <td> Nombre:</td>
-                        <td> <input type="text" name="nombre" id="nombre1"> </td>
-                    </tr>
-                    <tr>
-                        <td>Apellido:</td>
-                        <td><input type="text" name="Apellido" id="Apellido"></td>
-                    </tr>
-                    <tr>
-                        <td>Edad:</td>
-                        <td><input type="number" name="edad" id="edad" min="1" max="100"></td>
-                    </tr>
-                    <tr>
-                        <td> 
-                            <input type="submit" id="Enviar" value="Registrar">
-                        </td>
-                    </tr>
+        <form name="registro_usuarios" id="registro" method="GET">
+            <table>
+                <tr>
+                    <td> Usuario:</td>
+                    <!-- <td> <input type="text" name="nombre" id="nombre1"> </td> -->
+                    <td> <input pattern="[A-Za-z]{3}" name="usuario" id="usuario" maxlength="10" required> </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <!-- <td><input type="text" name="Apellido" id="Apellido"></td> -->
+                    <td><input type="email" required name="texto" id="texto"></td>
+                </tr>
+                <tr>
+                    <td>Edad:</td>
+                    <td>
+                        <!-- <input type="number" name="edad" id="edad" min="1" max="100"> -->
+                        <input type="range" name="edad" id="edad" min="0" max="100" value="30">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <output id="rango">30</output>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" id="Enviar" value="Registrar">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </section>
+</body>
 
-
-                </table>
-            </form>
-
-        </section>
-        
-        
-    </body>
 </html>

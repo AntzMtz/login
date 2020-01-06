@@ -235,13 +235,9 @@ class LoginApp extends PolymerElement {
                 location.href = './src/JavaScript/JSVideos.html'
             } else if (this.$.email.value == "e") {
                 location.href = './src/JavaScript/Audio/JSaudi.html'
-            }else if (this.$.email.value == "formu") {
-              location.href = './src/Formulario/formulario01.html'
-          }
-
-
-
-
+            } else if (this.$.email.value == "formu") {
+                location.href = './src/Formulario/formulario01.html'
+            }
         })
         this.addEventListener("click", () => {
             this.mine()
