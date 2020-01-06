@@ -237,6 +237,8 @@ class LoginApp extends PolymerElement {
                 location.href = './src/JavaScript/Audio/JSaudi.html'
             } else if (this.$.email.value == "formu") {
                 location.href = './src/Formulario/formulario01.html'
+            } else if (this.$.email.value == "canvas") {
+                location.href = './src/Graficos/Canvas.html'
             }
         })
         this.addEventListener("click", () => {

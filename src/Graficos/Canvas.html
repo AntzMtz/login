@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="iso-8559-1" />
+    <meta name="Description" content="Pagina de enseñanza HTML5" />
+    <meta name="Keywords" content="html5, css3, Javascripy, diseño web" />
+    <title>
+        Pagina en HTML5 Canvas
+    </title>
+    <style>
+        #lienzo {
+            background-color: blue;
+        }
+        
+        section {
+            width: 500px;
+            position: relative;
+            margin: auto;
+        }
+    </style>
+    <script>
+        function comenzar() {
+            var elemento = document.getElementById("lienzo");
+            lienzo = elemento.getContext("2d");
+            lienzo.fillRect(10, 10, 100, 100);
+            lienzo.strokeRect(10, 110, 100, 100);
+            lienzo.clearRect(35, 35, 50, 50);
+        }
+        window.addEventListener("load", comenzar, false)
+    </script>
+</head>
+
+<body>
+    <section id="dibujo">
+        <canvas id="lienzo" width="500" height="300">
+            su navegador no sopora canvas
+        </canvas>
+    </section>
+</body>
+
+</html>
