@@ -10,7 +10,8 @@
     </title>
     <style>
         #lienzo {
-            background-color: blue;
+            /* background-color: blue; */
+            border: .9px red solid;
         }
         
         section {
@@ -23,9 +24,49 @@
         function comenzar() {
             var elemento = document.getElementById("lienzo");
             lienzo = elemento.getContext("2d");
-            lienzo.fillRect(10, 10, 100, 100);
-            lienzo.strokeRect(10, 110, 100, 100);
-            lienzo.clearRect(35, 35, 50, 50);
+            var degradado = lienzo.createLinearGradient(250, 0, 250, 300);
+
+            degradado.addColorStop(0, "blue");
+            degradado.addColorStop(.9, "white");
+            lienzo.fillStyle = degradado;
+            // lienzo.strokeRect(0, 0, 499, 299);
+            lienzo.fillRect(0, 0, 500, 300);
+
+
+
+            degradado = lienzo.createRadialGradient(60, 70, 50, 90, 90, 09);
+            degradado.addColorStop(1, "white");
+            degradado.addColorStop(0, "red");
+            lienzo.fillStyle = degradado;
+            lienzo.arc(60, 70, 50, 0, 2 * 3.14, false);
+            lienzo.fill();
+
+            lienzo.beginPath();
+            lienzo.moveTo(120, 120);
+            lienzo.lineTo(220, 120);
+            lienzo.lineTo(170, 20);
+            lienzo.lineTo(120, 120);
+            degradado = lienzo.createLinearGradient(170, 20, 120, 220);
+            // degradado = lienzo.createLinearGradient(250, 0, 250, 300);
+            degradado.addColorStop(.4, "white");
+            degradado.addColorStop(0.1, "red");
+            lienzo.fillStyle = degradado;
+            lienzo.closePath();
+            lienzo.fill();
+
+
+
+            // // lienzo.fillRect(10, 10, 100, 100);
+            // lienzo.strokeStyle = "black";
+            // // lienzo.strokeRect(10, 110, 100, 100);
+            // // lienzo.clearRect(35, 35, 50, 50);
+
+            // // lienzo.strokeStyle = "white";
+            // // lienzo.fillStyle = "#f8c30d";
+            // // lienzo.globalAlpha = .69;
+
+            // lienzo.fillRect(170, 60, 100, 100);
+            // lienzo.clearRect(195, 85, 50, 50);
         }
         window.addEventListener("load", comenzar, false)
     </script>
