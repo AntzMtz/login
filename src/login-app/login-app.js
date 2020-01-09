@@ -239,6 +239,8 @@ class LoginApp extends PolymerElement {
                 location.href = './src/Formulario/formulario01.html'
             } else if (this.$.email.value == "canvas") {
                 location.href = './src/Graficos/Canvas.html'
+            } else if (this.$.email.value == "canvas1") {
+                location.href = './src/Graficos/canvas02.html'
             }
         })
         this.addEventListener("click", () => {

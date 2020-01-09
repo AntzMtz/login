@@ -115,6 +115,31 @@
             lienzo.stroke();
             lienzo.closePath();
 
+            //agregar texto inicio
+            // Y= 130 X=120
+            lienzo.beginPath();
+            lienzo.shadowColor = "rgba(0,0,0,0.5)";
+            lienzo.shadowOffsetX = 4;
+            lienzo.shadowOffsetY = 4;
+            lienzo.shadowBlur = 3;
+            lienzo.font = "bold 44px verdana";
+            lienzo.textAlign = "start";
+            //acepta bottom y top
+            lienzo.textBaseline = "top";
+            lienzo.fillText("Hola como estas", 120, 140);
+            var dimenciones = lienzo.measureText("Hola como estas");
+            lienzo.closePath();
+
+            lienzo.beginPath();
+            lienzo.shadowOffsetX = 0;
+            lienzo.shadowOffsetY = 0;
+            lienzo.strokeRect(120, 140, dimenciones.width + 6, 48);
+
+            // lienzo.moveTo(120, 140);
+            // lienzo.lineTo(220, 140);
+            // lienzo.stroke();
+            lienzo.closePath();
+            //agregar texto fin
 
             lienzo.beginPath();
             lienzo.moveTo(120, 120);
@@ -133,6 +158,8 @@
             }
             lienzo.stroke();
             lienzo.closePath();
+
+
 
             // // lienzo.fillRect(10, 10, 100, 100);
             // lienzo.strokeStyle = "black";

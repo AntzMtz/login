@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="iso-8559-1" />
+    <meta name="Description" content="Pagina de enseñanza HTML5" />
+    <meta name="Keywords" content="html5, css3, Javascripy, diseño web" />
+    <title>
+        Pagina en HTML5 Canvas 02
+    </title>
+
+    <script>
+        function comenzar() {
+            var elemento = document.getElementById("lienzo");
+            lienzo = elemento.getContext("2d");
+
+
+
+
+
+            lienzo.beginPath();
+            var degradado = lienzo.createLinearGradient(250, 0, 250, 300);
+            degradado.addColorStop(0, "blue");
+            degradado.addColorStop(.9, "white");
+            lienzo.fillStyle = degradado;
+            lienzo.strokeRect(0, 0, 499, 299);
+            lienzo.fillRect(0, 0, 500, 300);
+            lienzo.strokeRect(0, 0, 500, 300);
+            lienzo.closePath();
+
+            lienzo.translate(250, 150);
+            lienzo.scale(1.5, 3);
+            lienzo.rotate(Math.PI);
+
+            lienzo.beginPath();
+            lienzo.fillStyle = "yellow";
+
+            lienzo.font = "bold 20px verdana";
+            lienzo.fillText("Hola Como Estas", 1, 20);
+            lienzo.closePath();
+
+
+
+        }
+        window.addEventListener("load", comenzar, false);
+    </script>
+</head>
+
+<body>
+    <section id="dibujo">
+        <canvas id="lienzo" width="500" height="300">
+            su navegador no sopora canvas
+        </canvas>
+    </section>
+</body>
+
+</html>
