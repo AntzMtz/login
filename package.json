@@ -8,7 +8,9 @@
     "@polymer/paper-button": "^3.0.1",
     "@polymer/paper-card": "^3.0.1",
     "@polymer/paper-input": "^3.0.2",
-    "@polymer/polymer": "^3.0.0"
+    "@polymer/polymer": "^3.0.0",
+    "file-system": "^2.2.2",
+    "jquery": "^3.4.1"
   },
   "devDependencies": {
     "@polymer/test-fixture": "^4.0.2",

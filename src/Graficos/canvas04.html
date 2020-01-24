@@ -11,6 +11,13 @@
     <style>
         #lienzo {
             background-color: blue;
+            position: center;
+            
+        }
+        section {
+            
+            position: relative;
+            margin: auto;
         }
     </style>
     <script>
@@ -19,14 +26,14 @@
         var ascY = false;
         var ascX = false;
         var golpe = 0;
-        var altura = 18000;
-
+        var altura = 800;
+        var ancho=800;
         function comenzar() {
             var elemento = document.getElementById("lienzo");
             lienzo = elemento.getContext("2d");
 
-            var imagen = new Image();
-            imagen.src = "../HTML/Imagenes/1.jpg";
+            // var imagen = new Image();
+            // imagen.src = "../HTML/Imagenes/1.jpg";
             // imagen.addEventListener("load", maniImagen, false);
             // imagen.addEventListener("click", nega, true);
 
@@ -45,9 +52,9 @@
             // console.log("Eje X: " + e.clientX + " Eje Y: " + e.clientY);
             var xRaton = e.clientX;
             var yRaton = e.clientY;
-            document.getElementsByTagName("lienzo").style.height = 800;
-
-
+            // document.getElementsByTagName("lienzo").style.height = 1800;
+            document.getElementById("lienzo").width = ancho; 
+            document.getElementById("lienzo").height=altura;
 
 
 
@@ -206,7 +213,7 @@
 
 <body>
     <section id="dibujo">
-        <canvas id="lienzo" width="1800">
+        <canvas name="lienzo" id="lienzo" >
             su navegador no sopora canvas
         </canvas>
     </section>

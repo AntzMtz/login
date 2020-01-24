@@ -8,12 +8,36 @@
     <title>
         Pagina en HTML5 Drop 01
     </title>
-    <script src=”dist/jspdf.min.js”></script>
+    <script type="text/javascript" src="jspdf.min.js"></script>
+    <script>
+        function comenzar(){
+            var doc = new jsPDF('p','mm','letter');
+            
+            // var http = requirejs('http');
+            
+            var logo = new Image();
+            logo.src = '../HTML/Imagenes/2.jpg';
+            doc.addImage(logo, 'JPEG', 15, 40,150,150);
+            var filname="/home/antz/Descargas/login/src/Prueba.pdf";
+
+            // doc.writeFileSync(filname, fileContentModified, 'utf8')
+            // doc.output('save', filname); 
+            
+
+            
+        }
+        window.addEventListener("load", comenzar, false);
+    </script>
 
 </head>
 
 <body>
-
+    <div id="content">
+        <img src="../HTML/Imagenes/2.jpg" alt="foto">       
+    </div>
+    <div id="editor"></div>
+    
+    <button id="cmd">Generar pdf</button>
 </body>
 
 </html>
