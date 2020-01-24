@@ -8,66 +8,205 @@
     <title>
         Pagina en HTML5 Canvas 02
     </title>
-
+    <style>
+        #lienzo {
+            background-color: blue;
+        }
+    </style>
     <script>
+        var y = 40;
+        var x = 40;
+        var ascY = false;
+        var ascX = false;
+        var golpe = 0;
+        var altura = 18000;
+
         function comenzar() {
             var elemento = document.getElementById("lienzo");
             lienzo = elemento.getContext("2d");
 
-            lienzo.beginPath();
-            var degradado = lienzo.createLinearGradient(250, 0, 250, 300);
-            degradado.addColorStop(0, "blue");
-            degradado.addColorStop(.9, "white");
-            lienzo.fillStyle = degradado;
-            lienzo.strokeRect(0, 0, 499, 299);
-            lienzo.fillRect(0, 0, 500, 300);
-            lienzo.strokeRect(0, 0, 500, 300);
-            lienzo.closePath();
+            var imagen = new Image();
+            imagen.src = "../HTML/Imagenes/1.jpg";
+            // imagen.addEventListener("load", maniImagen, false);
+            // imagen.addEventListener("click", nega, true);
 
-            // lienzo.translate(250, 150);
-            // lienzo.scale(1.5, 3);
-            // lienzo.rotate(Math.PI);
-
-            // lienzo.beginPath();
-            // lienzo.fillStyle = "yellow";
-            // lienzo.shadowColor = "rgba(0,0,0,0.5)";
-            // lienzo.shadowOffsetX = 5;
-            // lienzo.shadowOffsetY = 5;
-            // lienzo.shadowBlur = 2;
-            // lienzo.font = "bold 20px verdana";
-            // lienzo.fillText("Hola Como Estas", 1, 20);
-            // lienzo.closePath();
-            lienzo.beginPath();
-            //el primer valor es igual a scala en el eje de las X
-            //el cuarto valor es igual a scala en el eje de las y
-            //el 5 y 6 es la posicion donde esta el texto en el eje de la X y Y 
-            //el 2 rota el texto 
-            //el 3 zesga el texto
-
-            lienzo.font = "bold 23px verdana";
-            lienzo.fillStyle = "black";
-
-            lienzo.transform(3, 1, 2, 3, 30, 50);
-            // lienzo.fillText("Que Hay", 0, 23);
-            lienzo.save();
-            lienzo.closePath();
-            lienzo.beginPath();
-            // son acumulativos 
-            //regresa los valores del transform
-            lienzo.setTransform(1, 0.5, .5, 1, 0, 0);
-            lienzo.restore();
-            lienzo.fillText("Que Hay", 0, 23);
-            lienzo.closePath();
+            // inter = setInterval(animat, 50);
+            // golpe++
+            // if (golpe > 2) {
+            //     clearInterval(inter);
+            // }
+            window.addEventListener("mousemove", anima1);
 
 
         }
+
+        function anima1(e) {
+            lienzo.clearRect(0, 0, 800, 800);
+            // console.log("Eje X: " + e.clientX + " Eje Y: " + e.clientY);
+            var xRaton = e.clientX;
+            var yRaton = e.clientY;
+            document.getElementsByTagName("lienzo").style.height = 800;
+
+
+
+
+
+            // var radio3 = radio * 3;
+            var radio3 = document.getElementById("lienzo").height / 2;
+            console.log("Altura:" + document.getElementById("lienzo").height);
+
+            var radio = radio3 / 3;
+            var sepNari = radio * .20;
+
+            var radio2 = radio * .65;
+            var xCentro = (document.getElementById("lienzo").width / 2) - radio2;
+            var yCentro = (document.getElementById("lienzo").height / 2) - radio2;
+
+
+            var x2 = xCentro + (radio * 2) + sepNari;
+            var xNari = radio + (sepNari / 2);
+
+
+            lienzo.beginPath();
+            lienzo.fillStyle = "yellow";
+            lienzo.arc(xCentro + radio2, yCentro + radio2, radio3, 0, Math.PI * 2, false);
+            lienzo.fill();
+
+            lienzo.beginPath();
+            lienzo.fillStyle = "black";
+            lienzo.lineWidth = sepNari * .75;
+            lienzo.lineJoin = "round";
+            lienzo.moveTo(xCentro + xNari, yCentro);
+            console.log("xNary:" + (xNari * 1.3));
+
+            lienzo.lineTo(xCentro + (xNari * 1.3), yCentro + (radio * 1.5));
+            lienzo.lineTo(xCentro + xNari, yCentro + (radio * 1.5));
+            lienzo.stroke();
+            //Linea de boca
+            lienzo.beginPath();
+            lienzo.moveTo(xCentro - (radio * 1.5), yCentro + radio + radio2);
+            lienzo.quadraticCurveTo(xCentro + radio2, yCentro + (radio * 4), xCentro + radio3, yCentro + radio + radio2)
+                // lienzo.lineTo(xCentro + radio3, yCentro + radio + radio2);
+            lienzo.stroke();
+
+            lienzo.beginPath();
+            lienzo.fillStyle = "white";
+            lienzo.arc(xCentro, yCentro, radio, 0, Math.PI * 2, false);
+            lienzo.moveTo(x2 + radio, yCentro);
+            lienzo.arc(x2, yCentro, radio, 0, Math.PI * 2, false);
+            lienzo.fill();
+            lienzo.closePath();
+
+            lienzo.beginPath();
+            var angulo = Math.atan2(xRaton - xCentro, yRaton - yCentro);
+            // console.log("angula: " + angulo + "round: " + Math.round(Math.cos(angulo)));
+
+            var x = xCentro + (Math.round(Math.sin(angulo) * (radio2 / 2)));
+            var y = yCentro + (Math.round(Math.cos(angulo) * (radio2 / 2)));
+
+            var degradado = lienzo.createLinearGradient(x + radio2, y + radio2, x - radio2, y - radio2);
+            degradado.addColorStop(0, "blue");
+            degradado.addColorStop(1, "black");
+            lienzo.fillStyle = degradado;
+            lienzo.arc(x, y, radio2, 0, Math.PI * 2, false);
+            lienzo.fill();
+            lienzo.beginPath();
+            // console.log("X :" + x + "Y: " + y);
+
+            var moveX = x + (radio * 2);
+
+            degradado = lienzo.createLinearGradient(moveX - radio2, y - radio2, moveX + radio2, y + radio2);
+            degradado.addColorStop(1, "blue");
+            degradado.addColorStop(0, "black");
+            lienzo.fillStyle = degradado;
+            lienzo.moveTo(x2 + radio, yCentro);
+            lienzo.arc(moveX + sepNari, y, radio2, 0, Math.PI * 2, false);
+            lienzo.fill();
+            lienzo.closePath();
+        }
+
+        function animat() {
+            // lienzo.clearRect(0, 0, 800, 800);
+            lienzo.beginPath();
+            lienzo.arc(x, y, 40, 0, Math.PI * 2);
+
+            lienzo.fill();
+
+            if (x > 750) {
+                ascX = true;
+
+            } else if (x < 50) {
+                ascX = false;
+            }
+
+            if (y > 750) {
+                ascY = true;
+                // golpe++;
+            } else if (y < 50) {
+                ascY = false;
+            }
+
+            if ((x > 750 && y > 750) || (x > 750 && y < 50) || (x < 50 && y > 750) || (x < 50 && y < 50)) {
+                golpe++;
+                // console.log("Golpe: " + golpe);
+            }
+
+            if (ascY == false && ascX == false) {
+                y = y + 10;
+                x = x + 10;
+            } else if (ascY == true && ascX == true) {
+                y = y - 10;
+                x = x;
+
+
+
+            } else if (ascY == false && ascX == true) {
+                y = y + 10;
+                x = x - 10;
+            } else if (ascY == true && ascX == false) {
+                y = y - 10;
+                x = x;
+            }
+            lienzo.closePath();
+        }
+
+        function maniImagen(e) {
+            imagen = e.target;
+            lienzo.drawImage(imagen, 0, 0, 400, 400);
+            nega();
+
+        }
+
+        function nega(e) {
+
+            var NegX = 200;
+            var NegY = 400;
+            var infImagen = lienzo.getImageData(0, 0, NegX, NegY);
+            var pos;
+            for (x = 0; x <= NegX; x++) {
+                for (y = 0; y <= NegY; y++) {
+                    //para saber cual es la posicion del array del rojo en pixeles
+                    pos = (infImagen.width * 4 * y) + (x * 4);
+                    infImagen.data[pos] = 255 - infImagen.data[pos];
+                    infImagen.data[pos + 1] = 255 - infImagen.data[pos + 1];
+                    infImagen.data[pos + 2] = 255 - infImagen.data[pos + 2];
+                    // infImagen.data[pos + 3] = 400 - infImagen.data[pos + 3];
+                }
+            }
+            lienzo.putImageData(infImagen, 0, 0);
+        }
+
+
+
+
+
         window.addEventListener("load", comenzar, false);
     </script>
 </head>
 
 <body>
     <section id="dibujo">
-        <canvas id="lienzo" width="500" height="300">
+        <canvas id="lienzo" width="1800">
             su navegador no sopora canvas
         </canvas>
     </section>
