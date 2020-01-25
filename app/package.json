@@ -1,0 +1,7 @@
+{
+  "name": "app",
+  "dependencies": {
+    "raphael": "^2.3.0",
+    "require": "^2.4.20"
+  }
+}

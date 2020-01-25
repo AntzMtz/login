@@ -12,10 +12,9 @@
         #lienzo {
             background-color: blue;
             position: center;
-            
         }
+        
         section {
-            
             position: relative;
             margin: auto;
         }
@@ -26,8 +25,9 @@
         var ascY = false;
         var ascX = false;
         var golpe = 0;
-        var altura = 800;
-        var ancho=800;
+        var altura = 400;
+        var ancho = 400;
+
         function comenzar() {
             var elemento = document.getElementById("lienzo");
             lienzo = elemento.getContext("2d");
@@ -53,14 +53,14 @@
             var xRaton = e.clientX;
             var yRaton = e.clientY;
             // document.getElementsByTagName("lienzo").style.height = 1800;
-            document.getElementById("lienzo").width = ancho; 
-            document.getElementById("lienzo").height=altura;
+            document.getElementById("lienzo").width = ancho;
+            document.getElementById("lienzo").height = altura;
 
 
 
             // var radio3 = radio * 3;
             var radio3 = document.getElementById("lienzo").height / 2;
-            console.log("Altura:" + document.getElementById("lienzo").height);
+            // console.log("Altura:" + document.getElementById("lienzo").height);
 
             var radio = radio3 / 3;
             var sepNari = radio * .20;
@@ -84,7 +84,7 @@
             lienzo.lineWidth = sepNari * .75;
             lienzo.lineJoin = "round";
             lienzo.moveTo(xCentro + xNari, yCentro);
-            console.log("xNary:" + (xNari * 1.3));
+            // console.log("xNary:" + (xNari * 1.3));
 
             lienzo.lineTo(xCentro + (xNari * 1.3), yCentro + (radio * 1.5));
             lienzo.lineTo(xCentro + xNari, yCentro + (radio * 1.5));
@@ -213,7 +213,7 @@
 
 <body>
     <section id="dibujo">
-        <canvas name="lienzo" id="lienzo" >
+        <canvas name="lienzo" id="lienzo">
             su navegador no sopora canvas
         </canvas>
     </section>
