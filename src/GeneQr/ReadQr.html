@@ -6,69 +6,37 @@
     <!-- <script type="tetx/javascript" src="./QRReader/js/qrcode.js"></script>
     <script src="./QRReader/js/jquery.js"></script>
     <script src="./QRReader/js/qrReader.js"></script> -->
+    <script type="text/javascript" src="./qrcode-js/instascan.min.js">
+    </script>
 </head>
 
 <body>
     <video id="preview" autoplay controls>
 
     </video>
-
-    <script>
-        navigator.getMedia = (navigator.getUserMedia ||
-            navigator.webkitGetUserMedia ||
-            navigator.mozGetUserMedia);
-
-        navigator.getMedia(
-
-            // Restricciones (contraints) *Requerido
-            {
-                video: true,
-                audio: true
-            },
-
-            // Funcion de finalizacion (Succes-Callback) *Requerido
-            function(localMediaStream) {
-                var video = document.querySelector('video');
-                video.src = window.URL.createObjectURL(localMediaStream);
-                video.onloadedmetadata = function(e) {
-                    // Haz algo con el video aquí.
-                };
-            },
-
-            // errorCallback *Opcional
-            function(err) {
-                console.log("Ocurrió el siguiente error: " + err);
+    <script type="text/javascript">
+        let scanner = new Instascan.Scanner({
+            video: document.getElementById('preview')
+        });
+        scanner.addListener('scan', function(content) {
+            console.log(content);
+        });
+        Instascan.Camera.getCameras().then(function(cameras) {
+            if (cameras.length > 0) {
+                scanner.start(cameras[0]);
+            } else {
+                console.error('No cameras found.');
             }
-
-        );
+        }).catch(function(e) {
+            console.error(e);
+        });
     </script>
+
+
     <input type="file" id="file" name="file">
     <p>QR context <span id="content"></span></p>
 
     <script src="./QRReader/js/qrReader.js"></script>
-
-    <script>
-        // let scan = new Instascan.Scanner();
-
-        // let scanner = new Instascan.Scanner({
-        //     video: document.getElementById("preview")
-        // });
-
-        // scanner.addListener('scan', function(content) {
-        //     alert('Escaner :' + content)
-        //     window.open(content, "_blank");
-        // });
-        // Instascan.Camera.getCameras().then(
-        //     cameras => {
-        //         if (cameras.length > 0) {
-        //             scaner.start(cameras[0]);
-        //         } else {
-        //             console.error("No existe camara");
-
-        //         }
-        //     }
-        // )
-    </script>
 </body>
 
 
