@@ -1,7 +1,8 @@
 var miCodigoQR = new QRCode("codigoQR");
 var cadena = document.getElementById("item_txt");
-var Codicade=btoa("");
-var DesCodicade=atob("");
+var Codicade = btoa("");
+var DesCodicade = atob("");
+var encrypted = CryptoJS.AES.encrypt("", "");;
 $(document).ready(function() {
     var BtGenera = document.getElementById("generarCodigo");
     BtGenera.addEventListener("click", genera, false);
@@ -28,21 +29,31 @@ $(document).ready(function() {
     //     $("#descargarCodigo").trigger("click");
     // });
 });
-function encriptar(){
-    var CadEnc=cadena.value;
-    Codicade=btoa(CadEnc);
+
+function encriptar() {
+    var CadEnc = cadena.value;
+    Codicade = btoa(CadEnc);
+    // var encrypted = CryptoJS.AES.encrypt(Codicade);
     console.log(Codicade);
-    
+
+    var encrypted = CryptoJS.AES.encrypt(CadEnc, "");
+    var decrypted = CryptoJS.AES.decrypt(encrypted, "");
+
+
+    console.log("code2: " + encrypted);
+    console.log("code3: " + decrypted);
+
 }
 
-function desEncripar(){
-    var desEnc=Codicade;
-    DesCodicade=atob(desEnc);
+function desEncripar() {
+    var desEnc = Codicade;
+    DesCodicade = atob(desEnc);
     console.log(DesCodicade);
-    
+
 }
+
 function genera() {
-    
+
     var descarga = document.getElementById("descargarCodigo");
     console.log("cadena:" + cadena.value);
     if (cadena.value == "") {
@@ -51,7 +62,7 @@ function genera() {
     } else {
         encriptar();
         descarga.style.display = "inline-block";
-        miCodigoQR.makeCode(Codicade);
+        miCodigoQR.makeCode(encrypted);
         desEncripar();
     }
 
