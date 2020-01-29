@@ -41,7 +41,22 @@ function encriptar() {
 
 
     console.log("code2: " + encrypted);
-    console.log("code3: " + decrypted);
+    console.log("code3: " + decrypted.toString(CryptoJS.enc.Utf8));
+
+
+    // var myString = "https://www.titanesmedellin.com/";
+    // var myPassword = "myPassword";
+
+
+    // // PROCESS
+    // var encrypted = CryptoJS.AES.encrypt(myString, myPassword);
+    // var decrypted = CryptoJS.AES.decrypt(encrypted, myPassword);
+
+    // console.log("encrypted: " + encrypted);
+    // console.log("decrypted: " + decrypted.toString(CryptoJS.enc.Utf8));
+
+
+
 
 }
 
@@ -63,6 +78,7 @@ function genera() {
         encriptar();
         descarga.style.display = "inline-block";
         miCodigoQR.makeCode(encrypted);
+        alert(encrypted);
         desEncripar();
     }
 
