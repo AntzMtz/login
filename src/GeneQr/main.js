@@ -1,5 +1,7 @@
 var miCodigoQR = new QRCode("codigoQR");
-
+var cadena = document.getElementById("item_txt");
+var Codicade=btoa("");
+var DesCodicade=atob("");
 $(document).ready(function() {
     var BtGenera = document.getElementById("generarCodigo");
     BtGenera.addEventListener("click", genera, false);
@@ -26,18 +28,31 @@ $(document).ready(function() {
     //     $("#descargarCodigo").trigger("click");
     // });
 });
+function encriptar(){
+    var CadEnc=cadena.value;
+    Codicade=btoa(CadEnc);
+    console.log(Codicade);
+    
+}
 
+function desEncripar(){
+    var desEnc=Codicade;
+    DesCodicade=atob(desEnc);
+    console.log(DesCodicade);
+    
+}
 function genera() {
-    var cadena = document.getElementById("item_txt");
+    
     var descarga = document.getElementById("descargarCodigo");
     console.log("cadena:" + cadena.value);
     if (cadena.value == "") {
         alert("ingresa la secundaria y el Numero del alumno");
         cadena.focus();
     } else {
+        encriptar();
         descarga.style.display = "inline-block";
-        miCodigoQR.makeCode(cadena.value);
-
+        miCodigoQR.makeCode(Codicade);
+        desEncripar();
     }
 
 }
