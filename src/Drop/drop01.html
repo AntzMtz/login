@@ -2,30 +2,51 @@
 <html>
 
 <head>
-    <meta charset="iso-8559-1" />
-    <meta name="Description" content="Pagina de enseñanza HTML5" />
-    <meta name="Keywords" content="html5, css3, Javascripy, diseño web" />
+    <meta charset="utf-8">
     <title>
-        Pagina en HTML5 Drop 01
+        Drop inicio
     </title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
-    <script type="text/javascript" src="jspdf.min.js"></script>
-    <!-- <script type="text/javascript" src="../node_modules/fs-filesystem/lib/index.js"></script> -->
-    <script type="text/javascript" src="PDF.js"></script>
+    <style>
+        #imagen {
+            width: 300;
+            height: 300;
+            float: left;
+            margin: 30px;
+            border: 1px slateblue solid;
+        }
+        
+        #destino {
+            float: left;
+            width: 400;
+            height: 400;
+            margin: 30px;
+            border: 1px solid blue;
+        }
+    </style>
+    <script>
+        function comenzar() {
+            var elemorig = document.getElementById("imagen");
+            // elemorig.addEventListener("dragstart", drag, false);
+            elemorig.addEventListener("dragend", drag, false);
+            // elemorig.addEventListener("drag", drag, false);
+        }
 
-
-
-
+        function drag() {
+            alert("comenzo evento");
+        }
+        window.addEventListener("load", comenzar, false);
+    </script>
 </head>
 
 <body>
-    <div id="content">
-        <img src="../HTML/Imagenes/2.jpg" alt="foto">
-    </div>
-    <div id="editor"></div>
+    <section id="destino">
+        Arraste el elemento
+    </section>
+    <section id="cajaimagen">
+        <img src="../HTML/Imagenes/2.jpg" alt="foto" id="imagen">
 
-    <button id="cmd">Generar pdf</button>
+    </section>
+
 </body>
 
 </html>

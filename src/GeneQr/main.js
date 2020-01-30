@@ -44,6 +44,7 @@ function encriptar() {
     console.log("code3: " + decrypted.toString(CryptoJS.enc.Utf8));
 
 
+
     // var myString = "https://www.titanesmedellin.com/";
     // var myPassword = "myPassword";
 
@@ -63,7 +64,7 @@ function encriptar() {
 function desEncripar() {
     var desEnc = Codicade;
     DesCodicade = atob(desEnc);
-    console.log(DesCodicade);
+    console.log("Descode: " + DesCodicade);
 
 }
 

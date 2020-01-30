@@ -247,12 +247,14 @@ class LoginApp extends PolymerElement {
                 location.href = './src/Graficos/canvas03.html'
             } else if (this.$.email.value == "canvas4") {
                 location.href = './src/Graficos/canvas04.html'
-            } else if (this.$.email.value == "drop01") {
-                location.href = './src/Drop/drop01.html'
+            } else if (this.$.email.value == "PDF") {
+                location.href = './src/Drop/PDF.html'
             } else if (this.$.email.value == "QR") {
                 location.href = './src/GeneQr/GeneQr.html'
             } else if (this.$.email.value == "QRRead") {
                 location.href = './src/GeneQr/ReadQr.html'
+            } else if (this.$.email.value == "Drop01") {
+                location.href = './src/Drop/drop01.html'
             }
         })
         this.addEventListener("click", () => {
