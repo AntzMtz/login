@@ -2,7 +2,7 @@ var miCodigoQR = new QRCode("codigoQR");
 var cadena = document.getElementById("item_txt");
 var Codicade = btoa("");
 var DesCodicade = atob("");
-var encrypted = CryptoJS.AES.encrypt("", "");;
+var encrypted = CryptoJS.AES.encrypt("", "");
 $(document).ready(function() {
     var BtGenera = document.getElementById("generarCodigo");
     BtGenera.addEventListener("click", genera, false);
@@ -32,40 +32,26 @@ $(document).ready(function() {
 
 function encriptar() {
     var CadEnc = cadena.value;
-    Codicade = btoa(CadEnc);
-    // var encrypted = CryptoJS.AES.encrypt(Codicade);
-    console.log(Codicade);
-
-    var encrypted = CryptoJS.AES.encrypt(CadEnc, "");
-    var decrypted = CryptoJS.AES.decrypt(encrypted, "");
-
-
+    encrypted = CryptoJS.AES.encrypt(CadEnc, "");
     console.log("code2: " + encrypted);
-    console.log("code3: " + decrypted.toString(CryptoJS.enc.Utf8));
 
-
-
+    // Codicade = btoa(CadEnc);
+    // var decrypted = CryptoJS.AES.decrypt(encrypted, "");
+    // console.log("code3: " + decrypted.toString(CryptoJS.enc.Utf8));
     // var myString = "https://www.titanesmedellin.com/";
     // var myPassword = "myPassword";
-
-
     // // PROCESS
     // var encrypted = CryptoJS.AES.encrypt(myString, myPassword);
     // var decrypted = CryptoJS.AES.decrypt(encrypted, myPassword);
-
     // console.log("encrypted: " + encrypted);
     // console.log("decrypted: " + decrypted.toString(CryptoJS.enc.Utf8));
-
-
-
-
 }
 
 function desEncripar() {
     var desEnc = Codicade;
     DesCodicade = atob(desEnc);
-    console.log("Descode: " + DesCodicade);
-
+    var decrypted = CryptoJS.AES.decrypt(encrypted, "");
+    console.log("Descode: " + decrypted.toString(CryptoJS.enc.Utf8));
 }
 
 function genera() {
@@ -78,8 +64,8 @@ function genera() {
     } else {
         encriptar();
         descarga.style.display = "inline-block";
-        miCodigoQR.makeCode(encrypted);
-        alert(encrypted);
+        var conm=encrypted+"";        
+        miCodigoQR.makeCode(conm);
         desEncripar();
     }
 

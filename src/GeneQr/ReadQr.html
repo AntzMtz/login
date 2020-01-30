@@ -8,7 +8,7 @@
 
     <script src="./QRLeer/jquery.min.js"></script>
     <script src="./QRLeer/instascan.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 </head>
 
 <body>
@@ -17,13 +17,17 @@
 
     <video id="preview" width="300" height="300"></video>
     <script type="text/javascript">
+    
+        // var encrypted = CryptoJS.AES.encrypt("AntzMtzRz", "");
+        
         let scanner = new Instascan.Scanner({
             video: document.getElementById('preview')
         });
         scanner.addListener('scan', function(content) {
-            console.log(content);
-            
-            alert(content);
+            var encrypted=content;
+            var decrypted = CryptoJS.AES.decrypt(encrypted, "");
+            var derr=decrypted.toString(CryptoJS.enc.Utf8);
+            console.log("Nombre: "+derr);
         });
         Instascan.Camera.getCameras().then(function(cameras) {
             if (cameras.length > 0) {
