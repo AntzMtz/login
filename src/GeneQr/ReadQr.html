@@ -25,8 +25,14 @@
         });
         scanner.addListener('scan', function(content) {
             var encrypted=content;
-            var decrypted = CryptoJS.AES.decrypt(encrypted, "");
+            var deEncrBoat= atob(encrypted);
+            var decrypted = CryptoJS.AES.decrypt(deEncrBoat, "");
             var derr=decrypted.toString(CryptoJS.enc.Utf8);
+            
+            console.log("conent: "+content);
+            console.log("Boat: "+deEncrBoat);
+            console.log("Desec: "+decrypted);
+            
             console.log("Nombre: "+derr);
         });
         Instascan.Camera.getCameras().then(function(cameras) {

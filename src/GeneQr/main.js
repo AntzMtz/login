@@ -33,7 +33,11 @@ $(document).ready(function() {
 function encriptar() {
     var CadEnc = cadena.value;
     encrypted = CryptoJS.AES.encrypt(CadEnc, "");
+
     console.log("code2: " + encrypted);
+    Codicade = btoa(encrypted);
+    console.log("Boat code"+Codicade );
+    
 
     // Codicade = btoa(CadEnc);
     // var decrypted = CryptoJS.AES.decrypt(encrypted, "");
@@ -64,7 +68,8 @@ function genera() {
     } else {
         encriptar();
         descarga.style.display = "inline-block";
-        var conm=encrypted+"";        
+        // var conm=encrypted+"";        
+        var conm=Codicade;
         miCodigoQR.makeCode(conm);
         desEncripar();
     }
