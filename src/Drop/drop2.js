@@ -70,8 +70,8 @@ function imagenTermina(e) {
     var imagenDes = e.target;
     if (x == true) {
 
-        nombre = elemorig1[i].id.slice(0, -1);
-        console.log("nombre: " + nombre);
+        // nombre = elemorig1[i].id.slice(0, -1);
+        // console.log("nombre: " + nombre);
         imagenDes.style.visibility = "hidden";
         x = false;
     }

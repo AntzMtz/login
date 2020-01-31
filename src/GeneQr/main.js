@@ -36,8 +36,8 @@ function encriptar() {
 
     console.log("code2: " + encrypted);
     Codicade = btoa(encrypted);
-    console.log("Boat code"+Codicade );
-    
+    console.log("Boat code" + Codicade);
+
 
     // Codicade = btoa(CadEnc);
     // var decrypted = CryptoJS.AES.decrypt(encrypted, "");
@@ -69,7 +69,7 @@ function genera() {
         encriptar();
         descarga.style.display = "inline-block";
         // var conm=encrypted+"";        
-        var conm=Codicade;
+        var conm = Codicade;
         miCodigoQR.makeCode(conm);
         desEncripar();
     }
