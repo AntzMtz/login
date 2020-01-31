@@ -17,8 +17,9 @@ function soltarText(e) {
     var archivo = e.dataTransfer.files;
     var listado = "";
     for (var f = 0; f < archivo.length; f++) {
-        // listado = archivo[f].size;
-        listado = archivo[f].name;
+        // listado = (archivo[f].size/1024).toFixed(2);
+        // listado = archivo[f].name;
+        listado += "Archivo: " + archivo[f].name + " Peso: " + (archivo[f].size / 1024).toFixed(2) + " Tipo: " + archivo[f].type + "<br>";
 
     }
     soltar.innerHTML = listado;
