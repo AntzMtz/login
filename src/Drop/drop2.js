@@ -15,26 +15,20 @@ function comenzar() {
     elemDestino = document.getElementById("destino");
 
     elemDestino.addEventListener("dragenter", entrando, false);
-    elemDestino.addEventListener("dragover", function(e) {
+    elemDestino.addEventListener("dragover", function (e) {
         e.preventDefault();
     }, false);
     elemDestino.addEventListener("dragleave", salir, false);
 
     elemDestino.addEventListener("drop", destinoDrop, false);
-
-
-
-
 }
 
 function arrastrar(e) {
     element01 = e.target;
-    console.log("element01: " + element01);
+    nombre = e.target.id.slice(0,-1);
+    console.log("nom1: "+nombre);
+    // console.log("element01: " + element01);
     e.dataTransfer.setData("Text", element01.getAttribute("id"))
-        // codigo = "<img src='" + elemorig1[i].getAttribute("src") + "' id='imagen'>";
-        // e.dataTransfer.setData("Text", codigo);
-        // console.log("codi: " + codigo);
-
 }
 
 function destinoDrop(e) {
@@ -46,8 +40,11 @@ function destinoDrop(e) {
     if (src == null) {
         console.log("src:+" + src);
     } else {
-        elemDestino.innerHTML = "<img src='" + src + "' id='" + id + "'>";
-        console.log("codi env: " + elemDestino);
+        if(nombre=="Flor"){
+            elemDestino.innerHTML = "<img src='" + src + "' id='" + id + "'>";
+        }
+        
+        // console.log("codi env: " + elemDestino);
         x = true;
 
     }
@@ -58,7 +55,13 @@ function destinoDrop(e) {
 
 function entrando(e) {
     e.preventDefault();
-    elemDestino.style.background = "rgba(8,252,25,.5)";
+    
+    if(nombre=="Flor"){
+        elemDestino.style.background = "rgba(8,252,25,.5)";
+    }else{
+        elemDestino.style.background = "rgba(255,0,0,.3)"
+    }
+    
 }
 
 function salir(e) {
@@ -68,11 +71,16 @@ function salir(e) {
 
 function imagenTermina(e) {
     var imagenDes = e.target;
+    // console.log("target: "+imagenDes.id);
+    
     if (x == true) {
-
-        // nombre = elemorig1[i].id.slice(0, -1);
-        // console.log("nombre: " + nombre);
-        imagenDes.style.visibility = "hidden";
+        
+        
+        if(nombre=="Flor"){
+            // console.log("nombre: " + nombre);
+            imagenDes.style.visibility = "hidden";
+            
+        }
         x = false;
     }
 
