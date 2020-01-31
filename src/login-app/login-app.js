@@ -256,6 +256,10 @@ class LoginApp extends PolymerElement {
             } else if (this.$.email.value == "Drop01") {
                 location.href = './src/Drop/drop01.html'
             }
+            lse
+            if (this.$.email.value == "Drop02") {
+                location.href = './src/Drop/drop02.html'
+            }
         })
         this.addEventListener("click", () => {
             this.mine()

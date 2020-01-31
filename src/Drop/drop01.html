@@ -6,41 +6,18 @@
     <title>
         Drop inicio
     </title>
-    <style>
-        #imagen {
-            width: 300;
-            height: 300;
-            float: left;
-            margin: 30px;
-            border: 1px slateblue solid;
-        }
-        
-        #destino {
-            float: left;
-            width: 400;
-            height: 400;
-            margin: 30px;
-            border: 1px solid blue;
-        }
-    </style>
-    <script>
-        function comenzar() {
-            var elemorig = document.getElementById("imagen");
-            // elemorig.addEventListener("dragstart", drag, false);
-            elemorig.addEventListener("dragend", drag, false);
-            // elemorig.addEventListener("drag", drag, false);
-        }
+    <link href="./CCSDrop.css" rel="stylesheet">
 
-        function drag() {
-            alert("comenzo evento");
-        }
-        window.addEventListener("load", comenzar, false);
-    </script>
+
+    <script src="./drop.js"></script>
 </head>
 
 <body>
     <section id="destino">
+
         Arraste el elemento
+
+
     </section>
     <section id="cajaimagen">
         <img src="../HTML/Imagenes/2.jpg" alt="foto" id="imagen">
