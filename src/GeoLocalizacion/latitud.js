@@ -9,7 +9,13 @@ function ubicacion(e){
     output=document.getElementById("map");
     if(navigator.geolocation){
         output.innerHTML="<p>Tu Navegador soporta localización</p>"
-        navigator.geolocation.getCurrentPosition(localizacion);
+        var configura={
+            enableHighAccuracy:true,
+            timeout:10000,
+            maximunAge:60000
+        };
+        // navigator.geolocation.getCurrentPosition(localizacion,errores,configura);
+        navigator.geolocation.watchPosition(localizacion,errores,configura);
 
     }else{
         output.innerHTML="<p>Tu Navegador No soporta localización</p>"
@@ -25,8 +31,11 @@ function localizacion(posicion){
     output.innerHTML=ubica;
     
 }
-function errores(){
-    output.innerHTML="<p>Tu Navegador No pudo recuperar la  localización</p>"
-    
+function errores(errores){
+    // output.innerHTML="<p>Tu Navegador No pudo recuperar la  localización "+errores.code+" "+errores.message+"</p>"
+    if(errores.code==1){
+        output.innerHTML="<p>Da permiso para la geolocalización</p>"
+    }
 }
+
 window.addEventListener("load",comenzar,false)
