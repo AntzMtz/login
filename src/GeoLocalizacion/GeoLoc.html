@@ -5,12 +5,26 @@
         <title>
             GeoLocalización inicio
         </title>
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDCKHfpq2heZwoHko_md-ETK6gSF6lQzM&callback=initMap"></script> -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDCKHfpq2heZwoHko_md-ETK6gSF6lQzM"></script>
         <script src="./latitud.js"></script>
-
+        
+        <style>
+            #map {
+              height: 90%;
+              width: 100%;
+            }
+            html, body {
+              height: 100%;
+              margin: 0;
+              padding: 0;
+            }
+          </style>        
     </head>
     <body>
         <button id="find_btn">Find Me</button>
         <div id="map"></div>
+        <div id="lati"></div>
     </body>
     
 </html>
