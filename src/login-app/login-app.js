@@ -261,7 +261,11 @@ class LoginApp extends PolymerElement {
                 location.href = './src/Drop/dropText.html'
             }else if (this.$.email.value == "Geo01") {
               location.href = './src/GeoLocalizacion/GeoLoc.html'
-          }
+          }else if (this.$.email.value == "Geo01") {
+              location.href = './src/GeoLocalizacion/GeoLoc.html'
+          }else if (this.$.email.value == "Storage01") {
+            location.href = './src/webStorage/webStorage01.html'
+        }
         })
         this.addEventListener("click", () => {
             this.mine()
