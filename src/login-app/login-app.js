@@ -269,6 +269,8 @@ class LoginApp extends PolymerElement {
                 location.href = './src/webStorage/webStorage02.html'
             } else if (this.$.email.value == "Index01") {
                 location.href = './src/IndexedDb/IndeDB.html'
+            } else if (this.$.email.value == "MyBase01") {
+                location.href = './src/BDMySql/MyBase.html'
             }
         })
         this.addEventListener("click", () => {
