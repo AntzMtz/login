@@ -8,28 +8,45 @@
 
 <body>
     <div>
-        <select id="method">
-            <option value="get">GET</option>
-            <option value="post">Post</option>
-            <option value="put">Put</option>
-        </select>
-        <input type="button" value="Probar" onclick="sedRequest()" />
-        <samp id="value1">(Result)</samp>
+        <h1 id="Titulo">AJAX</h1>
+        <button  id="boton">Get Data</button>
+        <ul id="list">
+
+        </ul>
     </div>
     <script>
-        var serviceUrl = "";
+        const boton=document.getElementById('boton');
+        boton.addEventListener('click',()=>{
+            let xhr;
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest()
+                console.log("Si acepta");
+                
+            }else{
+                xhr = new ActiveXObject('Microsoft.XMLHTTP')
+                console.log("No acepta");
+                
+            }
+            var URL30='https://gsindical-gral-lazarocardenas.herokuapp.com/dishes';
+            // var URL30='https://jsonplaceholder.typicode.com/users';
+            xhr.open('GET',URL30)
+            xhr.addEventListener('load',(data)=>{
+                console.log(JSON.parse(data.target.response))
 
-        function sedRequest() {
-            var method = $('method').val();
-            $.ajax({
-                type: method,
-                url: serviceUrl
-            }).done(function(data) {
-                $("#value1").text(data);
-            }).error(function(jqHHR, textStatus, errorThrown) {
-                $("#value1").text(jqHHR.responseText || textStatus);
-            });
-        }
+                var JSONDATA = (JSON.parse (data.target.response))
+                var obj=JSONDATA[0].comments[0];
+                console.log(obj);
+                
+                // const list=document.getElementById("list")
+                // for(var useri of JSONDATA){
+                //     const listAdd=document.createElement('LI')
+                //     listAdd.textContent= `${useri.id} - ${useri.name}`
+                //     list.appendChild(listAdd)
+                // }
+
+            })
+            xhr.send()
+        });
     </script>
 </body>
 
