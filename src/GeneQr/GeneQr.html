@@ -5,7 +5,7 @@
     <title>Generar Código QR</title>
     <link rel='stylesheet' href='./style.css' type='text/css'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -14,8 +14,11 @@
     <a href="#" id="descargarCodigo">Descargar</a>
     <div id="codigoQR"></div>
 </body>
-<script src="./GenQR/davidshimjs-qrcodejs-04f46c6/jquery.min.js"></script>
+<!-- <script src="./GenQR/davidshimjs-qrcodejs-04f46c6/jquery.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 <script src="./GenQR/davidshimjs-qrcodejs-04f46c6/qrcode.js"></script>
 <script src="./main.js"></script>
+<div id="result"></div>
 
 </html>

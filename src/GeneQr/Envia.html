@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Almacen</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+    <div>
+        <select id="method">
+            <option value="get">GET</option>
+            <option value="post">Post</option>
+            <option value="put">Put</option>
+        </select>
+        <input type="button" value="Probar" onclick="sedRequest()" />
+        <samp id="value1">(Result)</samp>
+    </div>
+    <script>
+        var serviceUrl = "";
+
+        function sedRequest() {
+            var method = $('method').val();
+            $.ajax({
+                type: method,
+                url: serviceUrl
+            }).done(function(data) {
+                $("#value1").text(data);
+            }).error(function(jqHHR, textStatus, errorThrown) {
+                $("#value1").text(jqHHR.responseText || textStatus);
+            });
+        }
+    </script>
+</body>
+
+</html>

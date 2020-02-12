@@ -4,6 +4,7 @@ var Codicade = btoa("");
 var DesCodicade = atob("");
 var encrypted = CryptoJS.AES.encrypt("", "");
 $(document).ready(function() {
+
     var BtGenera = document.getElementById("generarCodigo");
     BtGenera.addEventListener("click", genera, false);
 
@@ -75,6 +76,7 @@ function genera() {
     }
 
 }
+
 
 function decaQR() {
     var base64 = $("#codigoQR img").attr('src');
