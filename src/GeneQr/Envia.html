@@ -115,57 +115,57 @@
 
 
                     var JSONDATA = (JSON.parse(data.target.response))
-                        //     var obj = JSONDATA[0].comments;
-                        //     console.log(obj);
-                        //     var body = document.getElementsByTagName("body")[0];
-                        //     var list = document.getElementById("list")
-                        //     list = document.createElement("TABLE")
-                        //     var tblBody = document.createElement("tbody");
+                    var obj = JSONDATA[0].comments;
+                    console.log(obj);
+                    var body = document.getElementsByTagName("body")[0];
+                    var list = document.getElementById("list")
+                    list = document.createElement("TABLE")
+                    var tblBody = document.createElement("tbody");
 
-                    //     var hilera;
-                    //     var celda;
-                    //     var texto;
+                    var hilera;
+                    var celda;
+                    var texto;
 
-                    //     hilera = document.createElement("tr")
-                    //     for (var i = 0; i < 2; i++) {
-                    //         celda = document.createElement("td");
-                    //         if (i == 0) {
-                    //             Salida = "_ID";
+                    hilera = document.createElement("tr")
+                    for (var i = 0; i < 2; i++) {
+                        celda = document.createElement("td");
+                        if (i == 0) {
+                            Salida = "_ID";
 
-                    //         } else if (i == 1) {
-                    //             Salida = "RATING";
-                    //         }
-                    //         texto = document.createTextNode(Salida);
-                    //         celda.appendChild(texto);
-                    //         hilera.appendChild(celda);
-                    //         tblBody.appendChild(hilera);
-
-
-                    //     }
+                        } else if (i == 1) {
+                            Salida = "RATING";
+                        }
+                        texto = document.createTextNode(Salida);
+                        celda.appendChild(texto);
+                        hilera.appendChild(celda);
+                        tblBody.appendChild(hilera);
 
 
-
-                    //     for (var useri of obj) {
-                    //         console.log(useri._id);
-                    //         hilera = document.createElement("tr")
-                    //         for (var i = 0; i < 2; i++) {
-                    //             celda = document.createElement("td");
-                    //             if (i == 0) {
-                    //                 Salida = `${useri._id}`;
-
-                    //             } else if (i == 1) {
-                    //                 Salida = `${useri.rating}`;
-                    //             }
-                    //             texto = document.createTextNode(Salida);
-                    //             celda.appendChild(texto);
-                    //             hilera.appendChild(celda);
-                    //             tblBody.appendChild(hilera);
+                    }
 
 
-                    //         }
-                    //     }
-                    //     list.appendChild(tblBody);
-                    //     body.appendChild(list);
+
+                    for (var useri of obj) {
+                        console.log(useri._id);
+                        hilera = document.createElement("tr")
+                        for (var i = 0; i < 2; i++) {
+                            celda = document.createElement("td");
+                            if (i == 0) {
+                                Salida = `${useri._id}`;
+
+                            } else if (i == 1) {
+                                Salida = `${useri.rating}`;
+                            }
+                            texto = document.createTextNode(Salida);
+                            celda.appendChild(texto);
+                            hilera.appendChild(celda);
+                            tblBody.appendChild(hilera);
+
+
+                        }
+                    }
+                    list.appendChild(tblBody);
+                    body.appendChild(list);
 
                 })
                 xhr.send()
