@@ -1,0 +1,17 @@
+ibuciones Linux de escritorio, para el navegador Chrome, abre una ventana de terminal y ejecuta el siguiente comando:
+Shell
+google-chrome --disable-web-security --user-data-dir="/tmp/MiCarpeta"
+1
+	
+google-chrome --disable-web-security --user-data-dir="/tmp/MiCarpeta"
+
+Para realizar la misma operación sobre el navegador Chromium, ejecuta lo siguiente:
+Shell
+chromium-browser --disable-web-security --user-data-dir="/tmp/MiCarpeta"
+1
+	
+chromium-browser --disable-web-security --user-data-dir="/tmp/MiCarpeta"
+
+ 
+
+De esta forma puedes hacer que
