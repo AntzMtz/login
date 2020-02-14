@@ -63,109 +63,73 @@
         </form>
     </div>
     <script>
-        var Salida = "";
-        var regi = document.getElementById("BotonReg");
-        var form1 = document.getElementById("registro");
-
-        // const sendData = (data) => {
-        //     let xhr1
-        //     if (window.XMLHttpRequest) {
-        //         xhr1 = new XMLHttpRequest()
-        //         console.log("Si soporta");
-        //         console.log(data);
-
-        //         const formData = new FormData(data);
-
-        //     } else {
-        //         console.log("No soporta");
-
-        //     }
-        // }
-
-        regi.addEventListener("click", (e) => {
-            e.preventDefault()
-            console.log("sidio click");
-            sendData(form1);
-
-        })
-
-
-
-
-
-
         var boton = document.getElementById("boton");
         boton.addEventListener('click', () => {
             let xhr;
-
-            // var request = new Request('https://davidwalsh.name/demo/arsenal.json', {
-            // var Url30 = new Request('https://gsindical-gral-lazarocardenas.herokuapp.com/dishes', {
-            //     mode: 'no-cors'
-            // });
-            // console.log(request.response);
-
-            // const Url30 = 'https://xkcd.com/info.0.json';
-            const Url30 = 'https://gsindical-gral-lazarocardenas.herokuapp.com/dishes';
+            // const Url30 = 'https://gsindical-gral-lazarocardenas.herokuapp.com/dishes';
+            const Url30 = "http://localhost:5000/products";
             if (window.XMLHttpRequest) {
                 xhr = new XMLHttpRequest();
                 console.log("si tiene");
                 xhr.open('GET', Url30);
                 xhr.addEventListener('load', (data) => {
-                    console.log(JSON.parse(data.target.response))
+                    console.log("datos: " + data.timeStamp);
+
+                    // console.log(JSON.parse(data.target.response))
 
 
-                    var JSONDATA = (JSON.parse(data.target.response))
-                    var obj = JSONDATA[0].comments;
-                    console.log(obj);
-                    var body = document.getElementsByTagName("body")[0];
-                    var list = document.getElementById("list")
-                    list = document.createElement("TABLE")
-                    var tblBody = document.createElement("tbody");
+                    // var JSONDATA = (JSON.parse(data.target.response))
+                    // var obj = JSONDATA[0].comments;
+                    // console.log(obj);
+                    // var body = document.getElementsByTagName("body")[0];
+                    // var list = document.getElementById("list")
+                    // list = document.createElement("TABLE")
+                    // var tblBody = document.createElement("tbody");
 
-                    var hilera;
-                    var celda;
-                    var texto;
+                    // var hilera;
+                    // var celda;
+                    // var texto;
 
-                    hilera = document.createElement("tr")
-                    for (var i = 0; i < 2; i++) {
-                        celda = document.createElement("td");
-                        if (i == 0) {
-                            Salida = "_ID";
+                    // hilera = document.createElement("tr")
+                    // for (var i = 0; i < 2; i++) {
+                    //     celda = document.createElement("td");
+                    //     if (i == 0) {
+                    //         Salida = "_ID";
 
-                        } else if (i == 1) {
-                            Salida = "RATING";
-                        }
-                        texto = document.createTextNode(Salida);
-                        celda.appendChild(texto);
-                        hilera.appendChild(celda);
-                        tblBody.appendChild(hilera);
-
-
-                    }
+                    //     } else if (i == 1) {
+                    //         Salida = "RATING";
+                    //     }
+                    //     texto = document.createTextNode(Salida);
+                    //     celda.appendChild(texto);
+                    //     hilera.appendChild(celda);
+                    //     tblBody.appendChild(hilera);
 
 
-
-                    for (var useri of obj) {
-                        console.log(useri._id);
-                        hilera = document.createElement("tr")
-                        for (var i = 0; i < 2; i++) {
-                            celda = document.createElement("td");
-                            if (i == 0) {
-                                Salida = `${useri._id}`;
-
-                            } else if (i == 1) {
-                                Salida = `${useri.rating}`;
-                            }
-                            texto = document.createTextNode(Salida);
-                            celda.appendChild(texto);
-                            hilera.appendChild(celda);
-                            tblBody.appendChild(hilera);
+                    // }
 
 
-                        }
-                    }
-                    list.appendChild(tblBody);
-                    body.appendChild(list);
+
+                    // for (var useri of obj) {
+                    //     console.log(useri._id);
+                    //     hilera = document.createElement("tr")
+                    //     for (var i = 0; i < 2; i++) {
+                    //         celda = document.createElement("td");
+                    //         if (i == 0) {
+                    //             Salida = `${useri._id}`;
+
+                    //         } else if (i == 1) {
+                    //             Salida = `${useri.rating}`;
+                    //         }
+                    //         texto = document.createTextNode(Salida);
+                    //         celda.appendChild(texto);
+                    //         hilera.appendChild(celda);
+                    //         tblBody.appendChild(hilera);
+
+
+                    //     }
+                    // }
+                    // list.appendChild(tblBody);
+                    // body.appendChild(list);
 
                 })
                 xhr.send()
@@ -176,7 +140,79 @@
 
         })
     </script>
+    <script>
+        var boton = document.getElementById("BotonReg");
+        var dat = document.getElementById("user");
 
+        boton.addEventListener('click', () => {
+            let xhr;
+            var URLactual = window.location.href;
+            console.log("URL: " + URLactual);
+
+            var Salida = {
+                newItem: dat.value,
+                newUrl: URLactual
+            };
+
+            const Url30 = "http://localhost:5000/new-products";
+            if (window.XMLHttpRequest) {
+
+                xhr = new XMLHttpRequest();
+                console.log("si tiene");
+                const j34 = JSON.stringify(Salida);
+                console.log(j34);
+                xhr.open('POST', Url30);
+
+
+                xhr.setRequestHeader('Content-Type', "application/json");
+                xhr.onload = function() {
+                    // do something to response
+                    console.log(xhr.responseURL);
+                };
+                xhr.send(j34);
+
+
+
+                // xhr.addEventListener('load', (data) => {
+                //     console.log("datos: " + data.timeStamp);
+
+
+
+
+
+            } else {
+                console.error("No Soporta");
+
+
+            }
+        })
+
+
+
+
+
+        // const sendData = (data) => {
+        //         let xhr1
+        //         if (window.XMLHttpRequest) {
+        //             xhr1 = new XMLHttpRequest()
+        //             console.log("Si soporta");
+        //             console.log(data);
+
+        //             //         const formData = new FormData(data);
+
+        //             //     } else {
+        //             //         console.log("No soporta");
+
+        //             //     }
+        //         }
+
+        //         // regi.addEventListener("click", (e) => {
+        //         //     e.preventDefault()
+        //         //     console.log("sidio click");
+        //         //     sendData(form1);
+
+        //         // })
+    </script>
 
 
 
